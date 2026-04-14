@@ -28,15 +28,8 @@
       --white: #ffffff;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Outfit', sans-serif;
@@ -129,13 +122,8 @@
       transition: width 0.3s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
       background: var(--campfire) !important;
@@ -148,16 +136,12 @@
       transition: background 0.3s ease, transform 0.2s ease !important;
     }
 
-    .nav-cta::after {
-      display: none !important;
-    }
-
+    .nav-cta::after { display: none !important; }
     .nav-cta:hover {
       background: var(--campfire-glow) !important;
       transform: translateY(-1px);
     }
 
-    /* Mobile menu */
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -196,7 +180,6 @@
       z-index: 0;
     }
 
-    /* Mountain silhouette layers */
     .mountain-layer {
       position: absolute;
       bottom: 0;
@@ -204,29 +187,12 @@
       right: -5%;
     }
 
-    .mountain-layer svg {
-      width: 110%;
-      display: block;
-    }
+    .mountain-layer svg { width: 110%; display: block; }
+    .mountain-back { z-index: 1; }
+    .mountain-mid { z-index: 2; }
+    .mountain-front { z-index: 3; }
 
-    .mountain-back {
-      z-index: 1;
-    }
-
-    .mountain-mid {
-      z-index: 2;
-    }
-
-    .mountain-front {
-      z-index: 3;
-    }
-
-    /* Star field */
-    .stars {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
+    .stars { position: absolute; inset: 0; z-index: 0; }
 
     .star {
       position: absolute;
@@ -242,18 +208,11 @@
       50% { opacity: 1; }
     }
 
-    /* Gradient overlay */
     .hero-gradient {
       position: absolute;
       inset: 0;
       z-index: 4;
-      background: linear-gradient(
-        180deg,
-        rgba(15, 36, 24, 0.3) 0%,
-        rgba(15, 36, 24, 0.1) 40%,
-        rgba(15, 36, 24, 0.5) 80%,
-        rgba(15, 36, 24, 0.9) 100%
-      );
+      background: linear-gradient(180deg, rgba(15,36,24,0.3) 0%, rgba(15,36,24,0.1) 40%, rgba(15,36,24,0.5) 80%, rgba(15,36,24,0.9) 100%);
     }
 
     .hero-content {
@@ -267,8 +226,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(212, 100, 42, 0.2);
-      border: 1px solid rgba(212, 100, 42, 0.4);
+      background: rgba(212,100,42,0.2);
+      border: 1px solid rgba(212,100,42,0.4);
       color: var(--trail-light);
       padding: 0.5rem 1.2rem;
       border-radius: 50px;
@@ -290,10 +249,7 @@
       animation: fadeInUp 0.8s ease 0.5s both;
     }
 
-    .hero h1 em {
-      color: var(--campfire-glow);
-      font-style: italic;
-    }
+    .hero h1 em { color: var(--campfire-glow); font-style: italic; }
 
     .hero-subtitle {
       font-size: clamp(1rem, 2vw, 1.25rem);
@@ -332,13 +288,13 @@
     .btn-primary {
       background: var(--campfire);
       color: var(--white);
-      box-shadow: 0 4px 20px rgba(212, 100, 42, 0.35);
+      box-shadow: 0 4px 20px rgba(212,100,42,0.35);
     }
 
     .btn-primary:hover {
       background: var(--campfire-glow);
       transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(212, 100, 42, 0.45);
+      box-shadow: 0 6px 30px rgba(212,100,42,0.45);
     }
 
     .btn-outline {
@@ -350,6 +306,16 @@
     .btn-outline:hover {
       border-color: var(--white);
       background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: var(--pine);
       transform: translateY(-2px);
     }
 
@@ -377,27 +343,14 @@
       animation: scrollPulse 2s ease infinite;
     }
 
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ═══════════════════════════════════════════
        SECTIONS (Shared)
     ═══════════════════════════════════════════ */
-    section {
-      padding: 6rem 2rem;
-    }
+    section { padding: 6rem 2rem; }
 
     .section-inner {
       max-width: 1100px;
@@ -432,20 +385,12 @@
     }
 
     /* ═══════════════════════════════════════════
-       UNITS (Troop & Pack)
+       UNITS
     ═══════════════════════════════════════════ */
-    .units {
-      background: var(--white);
-    }
+    .units { background: var(--white); }
 
-    .units-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .units-header .section-desc {
-      margin: 0 auto;
-    }
+    .units-header { text-align: center; margin-bottom: 4rem; }
+    .units-header .section-desc { margin: 0 auto; }
 
     .units-grid {
       display: grid;
@@ -471,17 +416,11 @@
     }
 
     .unit-card-troop {
-      background:
-        linear-gradient(160deg, rgba(26, 58, 42, 0.92), rgba(15, 36, 24, 0.96)),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" x="20" font-size="60" opacity="0.03" fill="white">⛰️</text></svg>');
-      background-size: cover;
+      background: linear-gradient(160deg, rgba(26,58,42,0.92), rgba(15,36,24,0.96));
     }
 
     .unit-card-pack {
-      background:
-        linear-gradient(160deg, rgba(212, 100, 42, 0.92), rgba(180, 70, 20, 0.96)),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" x="20" font-size="60" opacity="0.03" fill="white">🏕️</text></svg>');
-      background-size: cover;
+      background: linear-gradient(160deg, rgba(212,100,42,0.92), rgba(180,70,20,0.96));
     }
 
     .unit-number {
@@ -544,25 +483,12 @@
       transition: gap 0.3s ease;
     }
 
-    .unit-link:hover {
-      gap: 0.8rem;
-    }
-
-    .unit-link-arrow {
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .unit-link:hover .unit-link-arrow {
-      transform: translateX(4px);
-    }
+    .unit-link:hover { gap: 0.8rem; }
 
     /* ═══════════════════════════════════════════
        ABOUT / WHY SCOUTING
     ═══════════════════════════════════════════ */
-    .about {
-      background: var(--cloud);
-    }
+    .about { background: var(--cloud); }
 
     .about-grid {
       display: grid;
@@ -571,9 +497,7 @@
       align-items: center;
     }
 
-    .about-content .section-desc {
-      margin-bottom: 2rem;
-    }
+    .about-content .section-desc { margin-bottom: 2rem; }
 
     .about-values {
       display: flex;
@@ -597,7 +521,6 @@
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
-      color: var(--white);
     }
 
     .about-value h4 {
@@ -636,27 +559,271 @@
       background: linear-gradient(160deg, var(--pine), var(--forest-deep));
     }
 
-    .about-image-placeholder svg {
-      width: 60px;
-      height: 60px;
-      opacity: 0.3;
+    .about-image-placeholder svg { width: 60px; height: 60px; opacity: 0.3; }
+
+    /* ═══════════════════════════════════════════
+       MEETING INFO
+    ═══════════════════════════════════════════ */
+    .meeting { background: var(--white); }
+
+    .meeting-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
     }
 
-    /* Decorative texture behind image */
-    .about-image::before {
-      content: '';
+    .meeting-card {
+      background: var(--cloud);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .meeting-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .meeting-card-accent {
       position: absolute;
-      inset: -20px;
-      z-index: -1;
-      background: repeating-linear-gradient(
-        45deg,
-        var(--sage) 0px,
-        var(--sage) 1px,
-        transparent 1px,
-        transparent 12px
-      );
-      opacity: 0.15;
-      border-radius: 20px;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .meeting-card-troop .meeting-card-accent { background: linear-gradient(90deg, var(--forest), var(--pine)); }
+    .meeting-card-pack .meeting-card-accent { background: linear-gradient(90deg, var(--campfire), var(--campfire-glow)); }
+
+    .meeting-card-type {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .meeting-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--forest-deep);
+      margin-bottom: 1.5rem;
+    }
+
+    .meeting-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .meeting-detail-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .meeting-card-troop .meeting-detail-icon { background: rgba(26,58,42,0.1); }
+    .meeting-card-pack .meeting-detail-icon { background: rgba(212,100,42,0.1); }
+
+    .meeting-detail-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.1rem;
+    }
+
+    .meeting-detail-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .meeting-detail-value a {
+      color: var(--campfire);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .meeting-detail-value a:hover { color: var(--campfire-glow); }
+
+    /* ═══════════════════════════════════════════
+       LOCATION
+    ═══════════════════════════════════════════ */
+    .location { background: var(--cloud); }
+
+    .location-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .location-info {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .location-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--forest-deep);
+      margin-bottom: 0.25rem;
+    }
+
+    .location-role {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--campfire);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+
+    .location-address {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .location-address-icon { font-size: 1.2rem; margin-top: 0.15rem; }
+
+    .location-address-text {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .location-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .location-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--campfire);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: gap 0.3s ease;
+    }
+
+    .location-link:hover { gap: 0.7rem; }
+
+    .location-map {
+      min-height: 300px;
+      background: var(--forest);
+      position: relative;
+    }
+
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      border: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       LEADERSHIP
+    ═══════════════════════════════════════════ */
+    .leadership { background: var(--white); }
+
+    .leadership-header { margin-bottom: 3rem; }
+
+    .leadership-unit { margin-bottom: 3rem; }
+    .leadership-unit:last-child { margin-bottom: 0; }
+
+    .leadership-unit-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .leadership-unit-label-troop { background: rgba(26,58,42,0.1); color: var(--forest); }
+    .leadership-unit-label-pack { background: rgba(212,100,42,0.1); color: var(--campfire); }
+    .leadership-unit-label-shared { background: rgba(139,115,85,0.12); color: var(--rope); }
+
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .leader-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--cloud);
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .leader-avatar {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--white);
+    }
+
+    .leader-avatar-troop { background: var(--forest); }
+    .leader-avatar-pack { background: var(--campfire); }
+    .leader-avatar-shared { background: var(--rope); }
+
+    .leader-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+
+    .leader-title {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 400;
     }
 
     /* ═══════════════════════════════════════════
@@ -671,7 +838,7 @@
       max-width: 900px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       text-align: center;
     }
@@ -695,36 +862,17 @@
     /* ═══════════════════════════════════════════
        CTA / JOIN
     ═══════════════════════════════════════════ */
-    .join {
-      background: var(--white);
-      text-align: center;
-    }
+    .join { background: var(--cloud); text-align: center; }
 
-    .join-inner {
-      max-width: 700px;
-      margin: 0 auto;
-    }
+    .join-inner { max-width: 700px; margin: 0 auto; }
 
-    .join .section-desc {
-      margin: 0 auto 2rem;
-      max-width: 500px;
-    }
+    .join .section-desc { margin: 0 auto 2rem; max-width: 500px; }
 
     .join-buttons {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-    }
-
-    .btn-dark {
-      background: var(--forest);
-      color: var(--white);
-    }
-
-    .btn-dark:hover {
-      background: var(--pine);
-      transform: translateY(-2px);
     }
 
     /* ═══════════════════════════════════════════
@@ -765,11 +913,7 @@
       color: var(--white);
     }
 
-    .footer-brand-text {
-      color: var(--white);
-      font-weight: 700;
-      font-size: 1rem;
-    }
+    .footer-brand-text { color: var(--white); font-weight: 700; font-size: 1rem; }
 
     .footer-tagline {
       color: rgba(255,255,255,0.4);
@@ -779,10 +923,7 @@
       line-height: 1.5;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 3rem;
-    }
+    .footer-links { display: flex; gap: 3rem; }
 
     .footer-col h5 {
       color: rgba(255,255,255,0.5);
@@ -803,9 +944,7 @@
       transition: color 0.2s ease;
     }
 
-    .footer-col a:hover {
-      color: var(--white);
-    }
+    .footer-col a:hover { color: var(--white); }
 
     .footer-bottom {
       max-width: 1100px;
@@ -819,15 +958,8 @@
       gap: 1rem;
     }
 
-    .footer-bottom p {
-      color: rgba(255,255,255,0.3);
-      font-size: 0.75rem;
-    }
-
-    .footer-council {
-      color: rgba(255,255,255,0.3);
-      font-size: 0.75rem;
-    }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+    .footer-council { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
 
     /* ═══════════════════════════════════════════
        RESPONSIVE
@@ -836,56 +968,42 @@
       .nav-links {
         display: none;
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(15, 36, 24, 0.98);
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(15,36,24,0.98);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
       }
 
-      .nav-links.open {
-        display: flex;
-      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.2rem; }
+      .nav-hamburger { display: flex; z-index: 101; }
 
-      .nav-links a {
-        font-size: 1.2rem;
-      }
+      .units-grid { grid-template-columns: 1fr; }
 
-      .nav-hamburger {
-        display: flex;
-        z-index: 101;
-      }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-image { order: -1; aspect-ratio: 16/9; }
 
-      .units-grid {
-        grid-template-columns: 1fr;
-      }
+      .meeting-grid { grid-template-columns: 1fr; }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+      .location-card { grid-template-columns: 1fr; }
+      .location-map { min-height: 250px; }
 
-      .about-image {
-        order: -1;
-        aspect-ratio: 16/9;
-      }
+      .leader-grid { grid-template-columns: 1fr; }
 
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
+      .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .stat-number { font-size: 1.8rem; }
 
-      .footer-links {
-        gap: 2rem;
-      }
+      .footer-links { gap: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; }
     }
 
     /* ═══════════════════════════════════════════
-       ANIMATIONS ON SCROLL
+       SCROLL REVEAL
     ═══════════════════════════════════════════ */
     .reveal {
       opacity: 0;
@@ -893,11 +1011,7 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -914,8 +1028,8 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#units">Our Units</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#" >Events</a></li>
-      <li><a href="#" >Gallery</a></li>
+      <li><a href="#meeting">Meetings</a></li>
+      <li><a href="#leadership">Leadership</a></li>
       <li><a href="#join" class="nav-cta">Join Us</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -926,13 +1040,8 @@
   <!-- ═══ HERO ═══ -->
   <section class="hero">
     <div class="hero-bg">
-      <!-- Stars -->
       <div class="stars" id="stars"></div>
-
-      <!-- Sky gradient -->
       <div style="position:absolute;inset:0;background:linear-gradient(180deg, #0a1628 0%, #152238 30%, #1a3a4a 50%, #2d5a3f 70%, #1a3a2a 100%);z-index:0;"></div>
-
-      <!-- Mountains -->
       <div class="mountain-layer mountain-back">
         <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
           <path d="M0,300 L0,180 L100,120 L200,160 L350,80 L500,140 L600,60 L750,130 L850,90 L950,150 L1050,70 L1150,120 L1200,100 L1200,300 Z" fill="rgba(45,90,63,0.4)"/>
@@ -948,7 +1057,6 @@
           <path d="M0,200 L0,160 L100,140 L250,170 L400,130 L500,160 L650,120 L800,155 L900,135 L1050,165 L1200,140 L1200,200 Z" fill="rgba(15,36,24,0.9)"/>
         </svg>
       </div>
-
       <div class="hero-gradient"></div>
     </div>
 
@@ -976,7 +1084,6 @@
         <h2 class="section-heading">Two Paths, One Mission</h2>
         <p class="section-desc">Whether your child is just starting their scouting journey or ready to tackle the trail to Eagle, we have a place for them.</p>
       </div>
-
       <div class="units-grid">
         <div class="unit-card unit-card-troop reveal reveal-delay-1">
           <div class="unit-number">673</div>
@@ -984,43 +1091,16 @@
           <h3 class="unit-name">Troop 673</h3>
           <div class="unit-ages">Ages 11–17</div>
           <p class="unit-desc">Backpacking, camping, leadership, and the trail to Eagle Scout. Our scouts plan their own adventures and lead the way.</p>
-          <a href="#" class="unit-link">
-            Learn More <span class="unit-link-arrow">→</span>
-          </a>
+          <a href="#meeting" class="unit-link">Meeting Info <span>→</span></a>
         </div>
-
         <div class="unit-card unit-card-pack reveal reveal-delay-2">
           <div class="unit-number">673</div>
           <span class="unit-type">Cub Scouts</span>
           <h3 class="unit-name">Pack 673</h3>
           <div class="unit-ages">Ages 5–10 · K through 5th Grade</div>
           <p class="unit-desc">Pinewood derby, campouts, and hands-on adventures. Cubs build friendships and skills that last a lifetime.</p>
-          <a href="#" class="unit-link">
-            Learn More <span class="unit-link-arrow">→</span>
-          </a>
+          <a href="#meeting" class="unit-link">Meeting Info <span>→</span></a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ STATS ═══ -->
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="reveal">
-        <div class="stat-number">673</div>
-        <div class="stat-label">Our Unit Number</div>
-      </div>
-      <div class="reveal reveal-delay-1">
-        <div class="stat-number">2</div>
-        <div class="stat-label">Active Units</div>
-      </div>
-      <div class="reveal reveal-delay-2">
-        <div class="stat-number">∞</div>
-        <div class="stat-label">Adventures Ahead</div>
-      </div>
-      <div class="reveal reveal-delay-3">
-        <div class="stat-number">1</div>
-        <div class="stat-label">Community</div>
       </div>
     </div>
   </section>
@@ -1033,7 +1113,6 @@
           <span class="section-label reveal">Why Scouting</span>
           <h2 class="section-heading reveal">More Than a Uniform</h2>
           <p class="section-desc reveal">Scouting in Cleburne is about building kids who are ready for the real world — confident, capable, and connected to their community.</p>
-
           <div class="about-values">
             <div class="about-value reveal">
               <div class="about-value-icon">🏕</div>
@@ -1065,7 +1144,6 @@
             </div>
           </div>
         </div>
-
         <div class="about-image reveal">
           <div class="about-image-placeholder">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1080,12 +1158,207 @@
     </div>
   </section>
 
+  <!-- ═══ MEETING INFO ═══ -->
+  <section class="meeting" id="meeting">
+    <div class="section-inner">
+      <span class="section-label reveal">When & Where</span>
+      <h2 class="section-heading reveal">Meeting Information</h2>
+      <p class="section-desc reveal">Both units meet at the same time every Monday evening at United Presbyterian Church. Come in the front door and we'll point you in the right direction.</p>
+
+      <div class="meeting-grid">
+        <div class="meeting-card meeting-card-troop reveal reveal-delay-1">
+          <div class="meeting-card-accent"></div>
+          <div class="meeting-card-type">Scouts BSA</div>
+          <h3>Troop 673</h3>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📅</div>
+            <div>
+              <div class="meeting-detail-label">When</div>
+              <div class="meeting-detail-value">Mondays at 7:00 PM</div>
+            </div>
+          </div>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📍</div>
+            <div>
+              <div class="meeting-detail-label">Where</div>
+              <div class="meeting-detail-value">United Presbyterian Church</div>
+            </div>
+          </div>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">👤</div>
+            <div>
+              <div class="meeting-detail-label">Ages</div>
+              <div class="meeting-detail-value">11–17 (6th–12th Grade)</div>
+            </div>
+          </div>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">✉️</div>
+            <div>
+              <div class="meeting-detail-label">Contact</div>
+              <div class="meeting-detail-value"><a href="mailto:scoutmaster@cleburnescouts.org">scoutmaster@cleburnescouts.org</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="meeting-card meeting-card-pack reveal reveal-delay-2">
+          <div class="meeting-card-accent"></div>
+          <div class="meeting-card-type">Cub Scouts</div>
+          <h3>Pack 673</h3>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📅</div>
+            <div>
+              <div class="meeting-detail-label">When</div>
+              <div class="meeting-detail-value">Mondays at 7:00 PM</div>
+            </div>
+          </div>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📍</div>
+            <div>
+              <div class="meeting-detail-label">Where</div>
+              <div class="meeting-detail-value">United Presbyterian Church</div>
+            </div>
+          </div>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">👤</div>
+            <div>
+              <div class="meeting-detail-label">Ages</div>
+              <div class="meeting-detail-value">5–10 (Kindergarten–5th Grade)</div>
+            </div>
+          </div>
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">✉️</div>
+            <div>
+              <div class="meeting-detail-label">Contact</div>
+              <div class="meeting-detail-value"><a href="mailto:cubmaster@cleburnescouts.org">cubmaster@cleburnescouts.org</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LOCATION ═══ -->
+  <section class="location" id="location">
+    <div class="section-inner">
+      <span class="section-label reveal">Our Home</span>
+      <h2 class="section-heading reveal">Where to Find Us</h2>
+      <div class="location-card reveal">
+        <div class="location-info">
+          <div class="location-name">United Presbyterian Church</div>
+          <div class="location-role">Chartered Organization</div>
+          <div class="location-address">
+            <span class="location-address-icon">📍</span>
+            <div class="location-address-text">
+              1510 W Westhill Drive<br>
+              Cleburne, TX 76033
+            </div>
+          </div>
+          <div class="location-links">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=1510+W+Westhill+Dr+Cleburne+TX+76033" target="_blank" class="location-link">Get Directions →</a>
+            <a href="https://upccleburne.org/" target="_blank" class="location-link">Visit Church Website →</a>
+          </div>
+        </div>
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.0!2d-97.41!3d32.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e7b3b7b3b7b3b%3A0x0!2s1510+W+Westhill+Dr%2C+Cleburne%2C+TX+76033!5e0!3m2!1sen!2sus!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="United Presbyterian Church location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LEADERSHIP ═══ -->
+  <section class="leadership" id="leadership">
+    <div class="section-inner">
+      <div class="leadership-header">
+        <span class="section-label reveal">Leadership</span>
+        <h2 class="section-heading reveal">Meet Our Leaders</h2>
+        <p class="section-desc reveal">Our units are led by dedicated volunteers committed to delivering a quality scouting program for Cleburne's youth.</p>
+      </div>
+
+      <div class="leadership-unit reveal">
+        <div class="leadership-unit-label leadership-unit-label-shared">⚜ Chartered Organization</div>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-shared">GW</div>
+            <div>
+              <div class="leader-name">Dr. Greg Wilson</div>
+              <div class="leader-title">Charter Organization Rep · Pack & Troop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leadership-unit reveal">
+        <div class="leadership-unit-label leadership-unit-label-troop">🏔 Troop 673</div>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-troop">MR</div>
+            <div>
+              <div class="leader-name">Matthew Reynolds</div>
+              <div class="leader-title">Scoutmaster</div>
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-troop">KW</div>
+            <div>
+              <div class="leader-name">Karen Whitney</div>
+              <div class="leader-title">Committee Chair</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leadership-unit reveal">
+        <div class="leadership-unit-label leadership-unit-label-pack">🏕 Pack 673</div>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-pack">JS</div>
+            <div>
+              <div class="leader-name">Jessie Stocks</div>
+              <div class="leader-title">Cubmaster</div>
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-pack">MR</div>
+            <div>
+              <div class="leader-name">Matthew Reynolds</div>
+              <div class="leader-title">Committee Chair</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS / COUNCIL BAR ═══ -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-number">Longhorn</div>
+        <div class="stat-label">Council</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-number">Trinity</div>
+        <div class="stat-label">Trails District</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-number">673</div>
+        <div class="stat-label">Our Unit Number</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ JOIN CTA ═══ -->
   <section class="join" id="join">
     <div class="join-inner">
       <span class="section-label reveal">Get Involved</span>
       <h2 class="section-heading reveal">Ready for the Trail?</h2>
-      <p class="section-desc reveal">Whether your child is 5 or 17, there's a place for them at 673. Come to a meeting, meet the scouts, and see what scouting in Cleburne is all about.</p>
+      <p class="section-desc reveal">Stop by any Monday at 7:00 PM — no commitment, no pressure. Meet the scouts, meet the leaders, and see if 673 is the right fit for your family.</p>
       <div class="join-buttons reveal">
         <a href="mailto:info@cleburnescouts.org" class="btn btn-primary">Contact Us →</a>
         <a href="#units" class="btn btn-dark">Explore Our Units</a>
@@ -1106,15 +1379,15 @@
       <div class="footer-links">
         <div class="footer-col">
           <h5>Units</h5>
-          <a href="#">Troop 673</a>
-          <a href="#">Pack 673</a>
-          <a href="#">Calendar</a>
+          <a href="#units">Troop 673</a>
+          <a href="#units">Pack 673</a>
+          <a href="#meeting">Meetings</a>
         </div>
         <div class="footer-col">
           <h5>Connect</h5>
           <a href="mailto:info@cleburnescouts.org">Email Us</a>
           <a href="#">Facebook</a>
-          <a href="#">Join Now</a>
+          <a href="#join">Join Now</a>
         </div>
       </div>
     </div>
@@ -1125,13 +1398,13 @@
   </footer>
 
   <script>
-    // ── Nav scroll effect ──
+    // Nav scroll effect
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // ── Mobile menu ──
+    // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
@@ -1141,7 +1414,7 @@
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    // ── Stars ──
+    // Stars
     const starsContainer = document.getElementById('stars');
     for (let i = 0; i < 80; i++) {
       const star = document.createElement('div');
@@ -1153,12 +1426,10 @@
       starsContainer.appendChild(star);
     }
 
-    // ── Scroll reveal ──
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.15 });
 
