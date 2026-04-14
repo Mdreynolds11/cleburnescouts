@@ -1,0 +1,1170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Cleburne Scouts · Troop 673 & Pack 673</title>
+  <meta name="description" content="Learn about Troop 673 and Pack 673 in Cleburne, Texas. Meeting times, leadership, and how to get involved with scouting in Johnson County.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1a3a2a;
+      --forest-deep: #0f2418;
+      --pine: #2d5a3f;
+      --sage: #7a9e7e;
+      --trail: #c4a35a;
+      --trail-light: #e8d5a3;
+      --campfire: #d4642a;
+      --campfire-glow: #f4a63a;
+      --sky: #e8efe6;
+      --cloud: #f5f7f4;
+      --rock: #3a3a3a;
+      --rope: #8b7355;
+      --text: #1a1a1a;
+      --text-light: #5a5a5a;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: var(--cloud);
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION (same as homepage)
+    ═══════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 36, 24, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .nav-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--campfire);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover .nav-logo-icon {
+      transform: rotate(15deg) scale(1.05);
+    }
+
+    .nav-logo-text {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--campfire);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-links a.active {
+      color: var(--white);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--campfire) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      transition: background 0.3s ease, transform 0.2s ease !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    .nav-cta:hover {
+      background: var(--campfire-glow) !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* ═══════════════════════════════════════════
+       PAGE HEADER
+    ═══════════════════════════════════════════ */
+    .page-header {
+      background: var(--forest-deep);
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(45,90,63,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,100,42,0.08) 0%, transparent 50%);
+    }
+
+    /* Subtle mountain silhouette */
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -5%;
+      right: -5%;
+      height: 80px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,80 L0,50 L100,35 L250,55 L400,25 L500,45 L650,20 L800,40 L950,30 L1100,50 L1200,35 L1200,80 Z' fill='%23f5f7f4'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 110% auto;
+      z-index: 1;
+    }
+
+    .page-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-header .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--campfire);
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      max-width: 550px;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTIONS (Shared)
+    ═══════════════════════════════════════════ */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--campfire);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--forest-deep);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════════════
+       MEETING INFO
+    ═══════════════════════════════════════════ */
+    .meeting {
+      background: var(--white);
+    }
+
+    .meeting-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .meeting-card {
+      background: var(--cloud);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .meeting-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .meeting-card-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .meeting-card-troop .meeting-card-accent {
+      background: linear-gradient(90deg, var(--forest), var(--pine));
+    }
+
+    .meeting-card-pack .meeting-card-accent {
+      background: linear-gradient(90deg, var(--campfire), var(--campfire-glow));
+    }
+
+    .meeting-card-type {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .meeting-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--forest-deep);
+      margin-bottom: 1.5rem;
+    }
+
+    .meeting-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .meeting-detail-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .meeting-card-troop .meeting-detail-icon {
+      background: rgba(26, 58, 42, 0.1);
+    }
+
+    .meeting-card-pack .meeting-detail-icon {
+      background: rgba(212, 100, 42, 0.1);
+    }
+
+    .meeting-detail-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.1rem;
+    }
+
+    .meeting-detail-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .meeting-detail-value a {
+      color: var(--campfire);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .meeting-detail-value a:hover {
+      color: var(--campfire-glow);
+    }
+
+    /* ═══════════════════════════════════════════
+       LOCATION CARD
+    ═══════════════════════════════════════════ */
+    .location {
+      background: var(--cloud);
+    }
+
+    .location-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .location-info {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .location-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--forest-deep);
+      margin-bottom: 0.25rem;
+    }
+
+    .location-role {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--campfire);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+    }
+
+    .location-address {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .location-address-icon {
+      font-size: 1.2rem;
+      margin-top: 0.15rem;
+    }
+
+    .location-address-text {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .location-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--campfire);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: gap 0.3s ease;
+    }
+
+    .location-link:hover { gap: 0.7rem; }
+
+    .location-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .location-map {
+      min-height: 300px;
+      background: var(--forest);
+      position: relative;
+    }
+
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      border: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       LEADERSHIP
+    ═══════════════════════════════════════════ */
+    .leadership {
+      background: var(--white);
+    }
+
+    .leadership-header {
+      margin-bottom: 3rem;
+    }
+
+    .leadership-unit {
+      margin-bottom: 3rem;
+    }
+
+    .leadership-unit:last-child {
+      margin-bottom: 0;
+    }
+
+    .leadership-unit-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .leadership-unit-label-troop {
+      background: rgba(26, 58, 42, 0.1);
+      color: var(--forest);
+    }
+
+    .leadership-unit-label-pack {
+      background: rgba(212, 100, 42, 0.1);
+      color: var(--campfire);
+    }
+
+    .leadership-unit-label-shared {
+      background: rgba(139, 115, 85, 0.12);
+      color: var(--rope);
+    }
+
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .leader-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--cloud);
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .leader-avatar {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--white);
+    }
+
+    .leader-avatar-troop { background: var(--forest); }
+    .leader-avatar-pack { background: var(--campfire); }
+    .leader-avatar-shared { background: var(--rope); }
+
+    .leader-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+
+    .leader-title {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════
+       COUNCIL INFO
+    ═══════════════════════════════════════════ */
+    .council {
+      background: var(--forest-deep);
+      padding: 4rem 2rem;
+    }
+
+    .council-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .council-item {
+      text-align: center;
+    }
+
+    .council-item-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.5rem;
+    }
+
+    .council-item-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .council-item-value a {
+      color: var(--campfire-glow);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .council-item-value a:hover {
+      color: var(--campfire);
+    }
+
+    /* ═══════════════════════════════════════════
+       CTA
+    ═══════════════════════════════════════════ */
+    .join {
+      background: var(--cloud);
+      text-align: center;
+    }
+
+    .join-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .join .section-desc {
+      margin: 0 auto 2rem;
+      max-width: 500px;
+    }
+
+    .join-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--campfire);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(212, 100, 42, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--campfire-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(212, 100, 42, 0.45);
+    }
+
+    .btn-dark {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: var(--pine);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: var(--forest-deep);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--campfire);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .footer-brand-text {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .footer-tagline {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+      font-weight: 300;
+      max-width: 300px;
+      line-height: 1.5;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .footer-col h5 {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+    }
+
+    .footer-council {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 36, 24, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a { font-size: 1.2rem; }
+
+      .nav-hamburger {
+        display: flex;
+        z-index: 101;
+      }
+
+      .meeting-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-card {
+        grid-template-columns: 1fr;
+      }
+
+      .location-map {
+        min-height: 250px;
+      }
+
+      .council-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-links {
+        gap: 2rem;
+      }
+
+      .leader-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">CS</div>
+      <span class="nav-logo-text">Cleburne Scouts</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#units">Our Units</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#join" class="nav-cta">Join Us</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══ PAGE HEADER ═══ -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">About Us</span>
+      <h1>Scouting in Cleburne</h1>
+      <p>Two units, one church, and a whole lot of adventure. Here's everything you need to know about Troop 673 and Pack 673.</p>
+    </div>
+  </header>
+
+  <!-- ═══ MEETING INFO ═══ -->
+  <section class="meeting">
+    <div class="section-inner">
+      <span class="section-label reveal">When & Where</span>
+      <h2 class="section-heading reveal">Meeting Information</h2>
+      <p class="section-desc reveal">Both units meet at the same time every Monday evening. Scouts spread across seven rooms throughout the church — come in the front door and we'll point you in the right direction.</p>
+
+      <div class="meeting-grid">
+        <!-- Troop Card -->
+        <div class="meeting-card meeting-card-troop reveal reveal-delay-1">
+          <div class="meeting-card-accent"></div>
+          <div class="meeting-card-type">Scouts BSA</div>
+          <h3>Troop 673</h3>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📅</div>
+            <div>
+              <div class="meeting-detail-label">When</div>
+              <div class="meeting-detail-value">Mondays at 7:00 PM</div>
+            </div>
+          </div>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📍</div>
+            <div>
+              <div class="meeting-detail-label">Where</div>
+              <div class="meeting-detail-value">United Presbyterian Church</div>
+            </div>
+          </div>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">👤</div>
+            <div>
+              <div class="meeting-detail-label">Ages</div>
+              <div class="meeting-detail-value">11–17 (6th–12th Grade)</div>
+            </div>
+          </div>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">✉️</div>
+            <div>
+              <div class="meeting-detail-label">Contact</div>
+              <div class="meeting-detail-value"><a href="mailto:scoutmaster@cleburnescouts.org">scoutmaster@cleburnescouts.org</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pack Card -->
+        <div class="meeting-card meeting-card-pack reveal reveal-delay-2">
+          <div class="meeting-card-accent"></div>
+          <div class="meeting-card-type">Cub Scouts</div>
+          <h3>Pack 673</h3>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📅</div>
+            <div>
+              <div class="meeting-detail-label">When</div>
+              <div class="meeting-detail-value">Mondays at 7:00 PM</div>
+            </div>
+          </div>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">📍</div>
+            <div>
+              <div class="meeting-detail-label">Where</div>
+              <div class="meeting-detail-value">United Presbyterian Church</div>
+            </div>
+          </div>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">👤</div>
+            <div>
+              <div class="meeting-detail-label">Ages</div>
+              <div class="meeting-detail-value">5–10 (Kindergarten–5th Grade)</div>
+            </div>
+          </div>
+
+          <div class="meeting-detail">
+            <div class="meeting-detail-icon">✉️</div>
+            <div>
+              <div class="meeting-detail-label">Contact</div>
+              <div class="meeting-detail-value"><a href="mailto:cubmaster@cleburnescouts.org">cubmaster@cleburnescouts.org</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LOCATION ═══ -->
+  <section class="location">
+    <div class="section-inner">
+      <span class="section-label reveal">Our Home</span>
+      <h2 class="section-heading reveal">Where to Find Us</h2>
+
+      <div class="location-card reveal">
+        <div class="location-info">
+          <div class="location-name">United Presbyterian Church</div>
+          <div class="location-role">Chartered Organization</div>
+
+          <div class="location-address">
+            <span class="location-address-icon">📍</span>
+            <div class="location-address-text">
+              1510 W Westhill Drive<br>
+              Cleburne, TX 76033
+            </div>
+          </div>
+
+          <div class="location-links">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=1510+W+Westhill+Dr+Cleburne+TX+76033" target="_blank" class="location-link">
+              Get Directions <span>→</span>
+            </a>
+            <a href="https://upccleburne.org/" target="_blank" class="location-link">
+              Visit Church Website <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.0!2d-97.41!3d32.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDIxJzAwLjAiTiA5N8KwMjQnMzYuMCJX!5e0!3m2!1sen!2sus!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="United Presbyterian Church location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LEADERSHIP ═══ -->
+  <section class="leadership">
+    <div class="section-inner">
+      <div class="leadership-header">
+        <span class="section-label reveal">Leadership</span>
+        <h2 class="section-heading reveal">Meet Our Leaders</h2>
+        <p class="section-desc reveal">Our units are led by dedicated volunteers committed to delivering a quality scouting program for Cleburne's youth.</p>
+      </div>
+
+      <!-- Shared Leadership -->
+      <div class="leadership-unit reveal">
+        <div class="leadership-unit-label leadership-unit-label-shared">⚜ Chartered Organization</div>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-shared">GW</div>
+            <div>
+              <div class="leader-name">Dr. Greg Wilson</div>
+              <div class="leader-title">Charter Organization Rep · Pack & Troop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Troop Leadership -->
+      <div class="leadership-unit reveal">
+        <div class="leadership-unit-label leadership-unit-label-troop">🏔 Troop 673</div>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-troop">MR</div>
+            <div>
+              <div class="leader-name">Matthew Reynolds</div>
+              <div class="leader-title">Scoutmaster</div>
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-troop">KW</div>
+            <div>
+              <div class="leader-name">Karen Whitney</div>
+              <div class="leader-title">Committee Chair</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pack Leadership -->
+      <div class="leadership-unit reveal">
+        <div class="leadership-unit-label leadership-unit-label-pack">🏕 Pack 673</div>
+        <div class="leader-grid">
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-pack">JS</div>
+            <div>
+              <div class="leader-name">Jessie Stocks</div>
+              <div class="leader-title">Cubmaster</div>
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar leader-avatar-pack">MR</div>
+            <div>
+              <div class="leader-name">Matthew Reynolds</div>
+              <div class="leader-title">Committee Chair</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COUNCIL BAR ═══ -->
+  <section class="council">
+    <div class="council-inner">
+      <div class="council-item reveal">
+        <div class="council-item-label">National Organization</div>
+        <div class="council-item-value">Scouting America</div>
+      </div>
+      <div class="council-item reveal reveal-delay-1">
+        <div class="council-item-label">Council</div>
+        <div class="council-item-value">Longhorn Council</div>
+      </div>
+      <div class="council-item reveal reveal-delay-2">
+        <div class="council-item-label">District</div>
+        <div class="council-item-value">Trinity Trails</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ JOIN CTA ═══ -->
+  <section class="join" id="join">
+    <div class="join-inner">
+      <span class="section-label reveal">Get Started</span>
+      <h2 class="section-heading reveal">Come See What It's All About</h2>
+      <p class="section-desc reveal">Stop by any Monday at 7:00 PM — no commitment, no pressure. Meet the scouts, meet the leaders, and see if 673 is the right fit for your family.</p>
+      <div class="join-buttons reveal">
+        <a href="mailto:info@cleburnescouts.org" class="btn btn-primary">Email Us →</a>
+        <a href="index.html" class="btn btn-dark">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-brand-icon">CS</div>
+          <span class="footer-brand-text">Cleburne Scouts</span>
+        </div>
+        <p class="footer-tagline">Troop 673 & Pack 673 — proudly serving the youth of Cleburne, Texas.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Units</h5>
+          <a href="#">Troop 673</a>
+          <a href="#">Pack 673</a>
+          <a href="#">Calendar</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="mailto:info@cleburnescouts.org">Email Us</a>
+          <a href="#">Facebook</a>
+          <a href="#join">Join Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cleburne Scouts — Troop 673 & Pack 673. All rights reserved.</p>
+      <span class="footer-council">Longhorn Council · Scouting America</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── Mobile menu ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
