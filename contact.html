@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Cleburne Scouts · Troop 673 & Pack 673</title>
+  <meta name="description" content="Get in touch with Troop 673 and Pack 673 in Cleburne, Texas. Questions about joining scouts? We'd love to hear from you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1a3a2a;
+      --forest-deep: #0f2418;
+      --pine: #2d5a3f;
+      --sage: #7a9e7e;
+      --trail: #c4a35a;
+      --trail-light: #e8d5a3;
+      --campfire: #d4642a;
+      --campfire-glow: #f4a63a;
+      --cloud: #f5f7f4;
+      --rope: #8b7355;
+      --text: #1a1a1a;
+      --text-light: #5a5a5a;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--cloud); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(15,36,24,0.95); backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--white); }
+    .nav-logo-icon { width: 42px; height: 42px; background: var(--campfire); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: var(--white); transition: transform 0.3s ease; }
+    .nav-logo:hover .nav-logo-icon { transform: rotate(15deg) scale(1.05); }
+    .nav-logo-text { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.03em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; position: relative; transition: color 0.3s ease; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--campfire); transition: width 0.3s ease; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta { background: var(--campfire) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; border-radius: 6px; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; transition: background 0.3s ease, transform 0.2s ease !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--campfire-glow) !important; transform: translateY(-1px); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s ease; }
+
+    .page-header {
+      background: var(--forest-deep);
+      padding: 8rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(45,90,63,0.3) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(212,100,42,0.08) 0%, transparent 50%);
+    }
+    .page-header::after {
+      content: '';
+      position: absolute; bottom: 0; left: -5%; right: -5%; height: 80px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,80 L0,50 L100,35 L250,55 L400,25 L500,45 L650,20 L800,40 L950,30 L1100,50 L1200,35 L1200,80 Z' fill='%23f5f7f4'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 110% auto; z-index: 1;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-header .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--campfire); margin-bottom: 0.75rem; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
+    .page-header p { font-size: 1.1rem; color: rgba(255,255,255,0.6); font-weight: 300; max-width: 550px; line-height: 1.6; }
+
+    .contact-section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
+
+    .contact-info-block { padding-top: 0.5rem; }
+
+    .info-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .info-icon { width: 44px; height: 44px; min-width: 44px; background: rgba(26,58,42,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .info-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.15rem; }
+    .info-value { font-size: 0.95rem; font-weight: 500; color: var(--text); line-height: 1.5; }
+
+    .info-divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 2rem 0; }
+
+    .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--campfire); margin-bottom: 0.75rem; }
+    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--forest-deep); line-height: 1.15; margin-bottom: 0.75rem; }
+    .section-desc { font-size: 1rem; color: var(--text-light); line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
+
+    .join-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .join-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.25rem; border-radius: 10px; text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .join-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+    .join-link-troop { background: var(--forest); color: var(--white); }
+    .join-link-pack { background: var(--campfire); color: var(--white); }
+
+    .form-wrap { background: var(--white); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+    .form-success { display: none; text-align: center; padding: 3rem 2rem; }
+    .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--forest-deep); margin-bottom: 0.75rem; }
+    .form-success p { color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; }
+    .form-success a { color: var(--campfire); text-decoration: none; font-weight: 600; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 1rem; border: 1.5px solid rgba(0,0,0,0.1); border-radius: 8px;
+      font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--text);
+      background: var(--cloud); transition: border-color 0.2s ease, box-shadow 0.2s ease; outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(26,58,42,0.08); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit {
+      width: 100%; padding: 1rem; background: var(--campfire); color: var(--white);
+      border: none; border-radius: 8px; font-family: 'Outfit', sans-serif;
+      font-size: 1rem; font-weight: 600; cursor: pointer; letter-spacing: 0.03em;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .form-submit:hover { background: var(--campfire-glow); transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    footer { background: var(--forest-deep); padding: 3rem 2rem 2rem; margin-top: 0; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+    .footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .footer-brand-icon { width: 36px; height: 36px; background: var(--campfire); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; color: var(--white); }
+    .footer-brand-text { color: var(--white); font-weight: 700; font-size: 1rem; }
+    .footer-tagline { color: rgba(255,255,255,0.4); font-size: 0.85rem; font-weight: 300; max-width: 300px; line-height: 1.5; }
+    .footer-links { display: flex; gap: 3rem; }
+    .footer-col h5 { color: rgba(255,255,255,0.5); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; font-weight: 400; margin-bottom: 0.4rem; transition: color 0.2s ease; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+    .footer-council { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,36,24,0.98); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.2rem; }
+      .nav-hamburger { display: flex; z-index: 101; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-links { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">CS</div>
+      <span class="nav-logo-text">Cleburne Scouts</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#units">Our Units</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#meeting">Meetings</a></li>
+      <li><a href="index.html#leadership">Leadership</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="index.html#join" class="nav-cta">Join Us</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Get In Touch</span>
+      <h1>We'd Love to Hear From You</h1>
+      <p>Questions about joining? Want to visit a meeting? Fill out the form and we'll get back to you quickly.</p>
+    </div>
+  </header>
+
+  <section class="contact-section">
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <div class="contact-info-block">
+          <div class="info-item">
+            <div class="info-icon">📅</div>
+            <div>
+              <div class="info-label">Meetings</div>
+              <div class="info-value">Mondays at 7:00 PM</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <div class="info-label">Location</div>
+              <div class="info-value">United Presbyterian Church<br>1510 W Westhill Dr<br>Cleburne, TX 76033</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div>
+              <div class="info-label">Response Time</div>
+              <div class="info-value">We typically respond within 24–48 hours</div>
+            </div>
+          </div>
+
+          <hr class="info-divider">
+
+          <span class="section-label">Ready to Sign Up?</span>
+          <h2 class="section-heading" style="font-size:1.6rem;">Register Directly Online</h2>
+          <p class="section-desc" style="font-size:0.95rem;">Skip the form — register your scout right now through the BSA online portal.</p>
+
+          <div class="join-links">
+            <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662taa0673&_gl=1*1ueeiaw*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank" class="join-link join-link-troop">
+              <span>🏔 Join Troop 673 — Ages 11–17</span>
+              <span>→</span>
+            </a>
+            <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662paa0673&_gl=1*1t47ad9*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank" class="join-link join-link-pack">
+              <span>🏕 Join Pack 673 — Ages 5–10</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-wrap">
+          <div id="form-success" class="form-success">
+            <div class="success-icon">⚜</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out — we'll be in touch soon. In the meantime, feel free to stop by any Monday at 7:00 PM at United Presbyterian Church.</p>
+            <a href="index.html">← Back to Home</a>
+          </div>
+
+          <form id="contact-form" action="https://formspree.io/f/xwvakdle" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email *</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="child-age">Child's Age</label>
+                <input type="number" id="child-age" name="child_age" placeholder="e.g. 8" min="5" max="17">
+              </div>
+              <div class="form-group">
+                <label for="interest">Interested In</label>
+                <select id="interest" name="interest">
+                  <option value="">Select one...</option>
+                  <option value="Pack 673 - Cub Scouts Ages 5-10">Pack 673 — Cub Scouts (Ages 5–10)</option>
+                  <option value="Troop 673 - Scouts BSA Ages 11-17">Troop 673 — Scouts BSA (Ages 11–17)</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                  <option value="Volunteering as a leader">Volunteering as a leader</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" placeholder="(817) 555-1234">
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us about your scout, ask a question, or just say hello..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-brand-icon">CS</div>
+          <span class="footer-brand-text">Cleburne Scouts</span>
+        </div>
+        <p class="footer-tagline">Troop 673 &amp; Pack 673 — proudly serving the youth of Cleburne, Texas.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Units</h5>
+          <a href="index.html#units">Troop 673</a>
+          <a href="index.html#units">Pack 673</a>
+          <a href="index.html#meeting">Meetings</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="contact.html">Contact Us</a>
+          <a href="#">Facebook</a>
+          <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662taa0673&_gl=1*1ueeiaw*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank">Join Troop</a>
+          <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662paa0673&_gl=1*1t47ad9*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank">Join Pack</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cleburne Scouts — Troop 673 &amp; Pack 673. All rights reserved.</p>
+      <span class="footer-council">Longhorn Council · Scouting America</span>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => navLinks.classList.remove('open')); });
+
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message →';
+          alert('Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
