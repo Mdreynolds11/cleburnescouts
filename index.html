@@ -432,6 +432,84 @@
     }
 
     /* ═══════════════════════════════════════════
+       QUICK INFO BAR
+    ═══════════════════════════════════════════ */
+    .quick-info {
+      background: var(--white);
+      padding: 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .quick-info-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 1.75rem 2rem;
+    }
+
+    .quick-info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .quick-info-icon {
+      font-size: 1.3rem;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: var(--cloud);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quick-info-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.1rem;
+    }
+
+    .quick-info-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .quick-info-sub {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    .quick-info-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .quick-info-inner {
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: flex-start;
+        padding: 1.5rem 2rem;
+      }
+
+      .quick-info-divider {
+        width: 100%;
+        height: 1px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
        UNITS (Troop & Pack)
     ═══════════════════════════════════════════ */
     .units {
@@ -965,6 +1043,36 @@
     <div class="hero-scroll">
       <span>Explore</span>
       <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ QUICK INFO BAR ═══ -->
+  <section class="quick-info">
+    <div class="quick-info-inner">
+      <div class="quick-info-item">
+        <div class="quick-info-icon">📅</div>
+        <div>
+          <div class="quick-info-label">When</div>
+          <div class="quick-info-value">Mondays at 7:00 PM</div>
+        </div>
+      </div>
+      <div class="quick-info-divider"></div>
+      <div class="quick-info-item">
+        <div class="quick-info-icon">📍</div>
+        <div>
+          <div class="quick-info-label">Where</div>
+          <div class="quick-info-value">United Presbyterian Church</div>
+          <div class="quick-info-sub">1510 W Westhill Dr · Cleburne, TX</div>
+        </div>
+      </div>
+      <div class="quick-info-divider"></div>
+      <div class="quick-info-item">
+        <div class="quick-info-icon">👥</div>
+        <div>
+          <div class="quick-info-label">Who</div>
+          <div class="quick-info-value">Ages 5–17 · Boys & Girls</div>
+        </div>
+      </div>
     </div>
   </section>
 
