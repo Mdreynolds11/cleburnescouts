@@ -28,181 +28,876 @@
       --white: #ffffff;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--cloud); overflow-x: hidden; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: var(--cloud);
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════ */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       transition: all 0.4s ease;
     }
-    nav.scrolled { background: rgba(15,36,24,0.95); backdrop-filter: blur(12px); padding: 0.7rem 2rem; box-shadow: 0 4px 30px rgba(0,0,0,0.15); }
-    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--white); }
-    .nav-logo-icon { width: 42px; height: 42px; background: var(--campfire); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: var(--white); transition: transform 0.3s ease; }
-    .nav-logo:hover .nav-logo-icon { transform: rotate(15deg) scale(1.05); }
-    .nav-logo-text { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.03em; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; position: relative; transition: color 0.3s ease; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--campfire); transition: width 0.3s ease; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta { background: var(--campfire) !important; color: var(--white) !important; padding: 0.6rem 1.4rem; border-radius: 6px; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; transition: background 0.3s ease, transform 0.2s ease !important; }
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--campfire-glow) !important; transform: translateY(-1px); }
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .nav-hamburger span { width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s ease; }
 
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: var(--forest-deep); }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; }
-    .hero-gradient { position: absolute; inset: 0; z-index: 4; background: linear-gradient(180deg, rgba(10,20,15,0.55) 0%, rgba(10,20,15,0.35) 40%, rgba(10,20,15,0.6) 80%, rgba(10,20,15,0.92) 100%); }
-    .hero-content { position: relative; z-index: 10; max-width: 900px; padding: 2rem; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(212,100,42,0.2); border: 1px solid rgba(212,100,42,0.4); color: var(--trail-light); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; animation: fadeInDown 0.8s ease 0.3s both; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 700; color: var(--white); line-height: 1.05; margin-bottom: 1.2rem; animation: fadeInUp 0.8s ease 0.5s both; }
-    .hero h1 em { color: var(--campfire-glow); font-style: italic; }
-    .hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.75); font-weight: 300; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.6; animation: fadeInUp 0.8s ease 0.7s both; }
-    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.9s both; }
-    .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 10; color: rgba(255,255,255,0.4); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; animation: fadeInUp 0.8s ease 1.2s both; }
-    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); animation: scrollPulse 2s ease infinite; }
-
-    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: 8px; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600; text-decoration: none; letter-spacing: 0.03em; transition: all 0.3s ease; cursor: pointer; border: none; }
-    .btn-primary { background: var(--campfire); color: var(--white); box-shadow: 0 4px 20px rgba(212,100,42,0.35); }
-    .btn-primary:hover { background: var(--campfire-glow); transform: translateY(-2px); box-shadow: 0 6px 30px rgba(212,100,42,0.45); }
-    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
-    .btn-dark { background: var(--forest); color: var(--white); }
-    .btn-dark:hover { background: var(--pine); transform: translateY(-2px); }
-
-    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-
-    section { padding: 6rem 2rem; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--campfire); margin-bottom: 0.75rem; }
-    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--forest-deep); line-height: 1.15; margin-bottom: 1rem; }
-    .section-desc { font-size: 1.05rem; color: var(--text-light); max-width: 600px; line-height: 1.7; font-weight: 300; }
-
-    .units { background: var(--white); }
-    .units-header { text-align: center; margin-bottom: 4rem; }
-    .units-header .section-desc { margin: 0 auto; }
-    .units-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .unit-card { position: relative; border-radius: 16px; overflow: hidden; padding: 3rem 2.5rem; min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; transition: transform 0.4s ease, box-shadow 0.4s ease; }
-    .unit-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-    .unit-card-troop { background: linear-gradient(160deg, rgba(26,58,42,0.92), rgba(15,36,24,0.96)); }
-    .unit-card-pack { background: linear-gradient(160deg, rgba(212,100,42,0.92), rgba(180,70,20,0.96)); }
-    .unit-number { font-size: 6rem; font-weight: 900; color: rgba(255,255,255,0.07); position: absolute; top: 1rem; right: 1.5rem; line-height: 1; }
-    .unit-type { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
-    .unit-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
-    .unit-ages { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.12); padding: 0.35rem 0.8rem; border-radius: 50px; font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight: 500; margin-bottom: 1.25rem; }
-    .unit-desc { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
-    .unit-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--white); font-weight: 600; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.03em; transition: gap 0.3s ease; }
-    .unit-link:hover { gap: 0.8rem; }
-
-    .about { background: var(--cloud); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .about-content .section-desc { margin-bottom: 2rem; }
-    .about-values { display: flex; flex-direction: column; gap: 1.25rem; }
-    .about-value { display: flex; gap: 1rem; align-items: flex-start; }
-    .about-value-icon { width: 44px; height: 44px; min-width: 44px; background: var(--forest); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-    .about-value h4 { font-size: 0.95rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.15rem; }
-    .about-value p { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; font-weight: 300; }
-    .about-image { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; background: var(--forest); }
-
-    .meeting { background: var(--white); }
-    .meeting-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
-    .meeting-card { background: var(--cloud); border-radius: 16px; padding: 2.5rem; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .meeting-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-    .meeting-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-    .meeting-card-troop .meeting-card-accent { background: linear-gradient(90deg, var(--forest), var(--pine)); }
-    .meeting-card-pack .meeting-card-accent { background: linear-gradient(90deg, var(--campfire), var(--campfire-glow)); }
-    .meeting-card-type { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
-    .meeting-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 1.5rem; }
-    .meeting-detail { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .meeting-detail-icon { width: 36px; height: 36px; min-width: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-    .meeting-card-troop .meeting-detail-icon { background: rgba(26,58,42,0.1); }
-    .meeting-card-pack .meeting-detail-icon { background: rgba(212,100,42,0.1); }
-    .meeting-detail-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.1rem; }
-    .meeting-detail-value { font-size: 0.95rem; font-weight: 500; color: var(--text); line-height: 1.4; }
-    .meeting-detail-value a { color: var(--campfire); text-decoration: none; }
-    .meeting-detail-value a:hover { color: var(--campfire-glow); }
-
-    .location { background: var(--cloud); }
-    .location-card { background: var(--white); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; margin-top: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .location-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-    .location-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 0.25rem; }
-    .location-role { font-size: 0.8rem; font-weight: 600; color: var(--campfire); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
-    .location-address { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; }
-    .location-address-icon { font-size: 1.2rem; margin-top: 0.15rem; }
-    .location-address-text { font-size: 0.95rem; color: var(--text-light); line-height: 1.5; }
-    .location-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
-    .location-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--campfire); font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: gap 0.3s ease; }
-    .location-link:hover { gap: 0.7rem; }
-    .location-map { min-height: 300px; background: var(--forest); position: relative; }
-    .location-map iframe { width: 100%; height: 100%; position: absolute; inset: 0; border: 0; }
-
-    .leadership { background: var(--white); }
-    .leadership-header { margin-bottom: 3rem; }
-    .leadership-unit { margin-bottom: 3rem; }
-    .leadership-unit:last-child { margin-bottom: 0; }
-    .leadership-unit-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem; }
-    .leadership-unit-label-troop { background: rgba(26,58,42,0.1); color: var(--forest); }
-    .leadership-unit-label-pack { background: rgba(212,100,42,0.1); color: var(--campfire); }
-    .leadership-unit-label-shared { background: rgba(139,115,85,0.12); color: var(--rope); }
-    .leader-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
-    .leader-card { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; background: var(--cloud); border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .leader-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.06); }
-    .leader-avatar { width: 48px; height: 48px; min-width: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; color: var(--white); }
-    .leader-avatar-troop { background: var(--forest); }
-    .leader-avatar-pack { background: var(--campfire); }
-    .leader-avatar-shared { background: var(--rope); }
-    .leader-name { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.1rem; }
-    .leader-title { font-size: 0.8rem; color: var(--text-light); font-weight: 400; }
-
-    .stats { background: var(--forest-deep); padding: 4rem 2rem; }
-    .stats-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
-    .stat-number { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--campfire-glow); margin-bottom: 0.25rem; }
-    .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
-
-    .join { background: var(--cloud); text-align: center; }
-    .join-inner { max-width: 700px; margin: 0 auto; }
-    .join .section-desc { margin: 0 auto 2rem; max-width: 500px; }
-    .join-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    footer { background: var(--forest-deep); padding: 3rem 2rem 2rem; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
-    .footer-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
-    .footer-brand-icon { width: 36px; height: 36px; background: var(--campfire); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; color: var(--white); }
-    .footer-brand-text { color: var(--white); font-weight: 700; font-size: 1rem; }
-    .footer-tagline { color: rgba(255,255,255,0.4); font-size: 0.85rem; font-weight: 300; max-width: 300px; line-height: 1.5; }
-    .footer-links { display: flex; gap: 3rem; }
-    .footer-col h5 { color: rgba(255,255,255,0.5); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; }
-    .footer-col a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; font-weight: 400; margin-bottom: 0.4rem; transition: color 0.2s ease; }
-    .footer-col a:hover { color: var(--white); }
-    .footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
-    .footer-council { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,36,24,0.98); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; }
-      .nav-links.open { display: flex; }
-      .nav-links a { font-size: 1.2rem; }
-      .nav-hamburger { display: flex; z-index: 101; }
-      .units-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .about-image { order: -1; aspect-ratio: 16/9; }
-      .meeting-grid { grid-template-columns: 1fr; }
-      .location-card { grid-template-columns: 1fr; }
-      .location-map { min-height: 250px; }
-      .leader-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-      .stat-number { font-size: 1.8rem; }
-      .footer-links { gap: 2rem; }
+    nav.scrolled {
+      background: rgba(15, 36, 24, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 0.7rem 2rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
     }
-    @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr; } }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .nav-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--campfire);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover .nav-logo-icon {
+      transform: rotate(15deg) scale(1.05);
+    }
+
+    .nav-logo-text {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--campfire);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--campfire) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      transition: background 0.3s ease, transform 0.2s ease !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--campfire-glow) !important;
+      transform: translateY(-1px);
+    }
+
+    /* Mobile menu */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--forest-deep);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Mountain silhouette layers */
+    .mountain-layer {
+      position: absolute;
+      bottom: 0;
+      left: -5%;
+      right: -5%;
+    }
+
+    .mountain-layer svg {
+      width: 110%;
+      display: block;
+    }
+
+    .mountain-back {
+      z-index: 1;
+    }
+
+    .mountain-mid {
+      z-index: 2;
+    }
+
+    .mountain-front {
+      z-index: 3;
+    }
+
+    /* Star field */
+    .stars {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* Gradient overlay */
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 36, 24, 0.3) 0%,
+        rgba(15, 36, 24, 0.1) 40%,
+        rgba(15, 36, 24, 0.5) 80%,
+        rgba(15, 36, 24, 0.9) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212, 100, 42, 0.2);
+      border: 1px solid rgba(212, 100, 42, 0.4);
+      color: var(--trail-light);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 0.8s ease 0.3s both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+      animation: fadeInUp 0.8s ease 0.5s both;
+    }
+
+    .hero h1 em {
+      color: var(--campfire-glow);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      animation: fadeInUp 0.8s ease 0.7s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.9s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--campfire);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(212, 100, 42, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--campfire-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(212, 100, 42, 0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: fadeInUp 0.8s ease 1.2s both;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTIONS (Shared)
+    ═══════════════════════════════════════════ */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--campfire);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--forest-deep);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════════════
+       UNITS (Troop & Pack)
+    ═══════════════════════════════════════════ */
+    .units {
+      background: var(--white);
+    }
+
+    .units-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .units-header .section-desc {
+      margin: 0 auto;
+    }
+
+    .units-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .unit-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 3rem 2.5rem;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .unit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .unit-card-troop {
+      background:
+        linear-gradient(160deg, rgba(26, 58, 42, 0.92), rgba(15, 36, 24, 0.96)),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" x="20" font-size="60" opacity="0.03" fill="white">⛰️</text></svg>');
+      background-size: cover;
+    }
+
+    .unit-card-pack {
+      background:
+        linear-gradient(160deg, rgba(212, 100, 42, 0.92), rgba(180, 70, 20, 0.96)),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" x="20" font-size="60" opacity="0.03" fill="white">🏕️</text></svg>');
+      background-size: cover;
+    }
+
+    .unit-number {
+      font-size: 6rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.07);
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      line-height: 1;
+    }
+
+    .unit-type {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.5rem;
+    }
+
+    .unit-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .unit-ages {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.12);
+      padding: 0.35rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .unit-desc {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .unit-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: gap 0.3s ease;
+    }
+
+    .unit-link:hover {
+      gap: 0.8rem;
+    }
+
+    .unit-link-arrow {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .unit-link:hover .unit-link-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════════
+       ABOUT / WHY SCOUTING
+    ═══════════════════════════════════════════ */
+    .about {
+      background: var(--cloud);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-content .section-desc {
+      margin-bottom: 2rem;
+    }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .about-value {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .about-value-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: var(--forest);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--white);
+    }
+
+    .about-value h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--forest-deep);
+      margin-bottom: 0.15rem;
+    }
+
+    .about-value p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--forest);
+    }
+
+    .about-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: linear-gradient(160deg, var(--pine), var(--forest-deep));
+    }
+
+    .about-image-placeholder svg {
+      width: 60px;
+      height: 60px;
+      opacity: 0.3;
+    }
+
+    /* Decorative texture behind image */
+    .about-image::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      z-index: -1;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--sage) 0px,
+        var(--sage) 1px,
+        transparent 1px,
+        transparent 12px
+      );
+      opacity: 0.15;
+      border-radius: 20px;
+    }
+
+    /* ═══════════════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════════════ */
+    .stats {
+      background: var(--forest-deep);
+      padding: 4rem 2rem;
+    }
+
+    .stats-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--campfire-glow);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════
+       CTA / JOIN
+    ═══════════════════════════════════════════ */
+    .join {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .join-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .join .section-desc {
+      margin: 0 auto 2rem;
+      max-width: 500px;
+    }
+
+    .join-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: var(--pine);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: var(--forest-deep);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--campfire);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .footer-brand-text {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .footer-tagline {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+      font-weight: 300;
+      max-width: 300px;
+      line-height: 1.5;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .footer-col h5 {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+    }
+
+    .footer-council {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.75rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 36, 24, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
+      }
+
+      .nav-hamburger {
+        display: flex;
+        z-index: 101;
+      }
+
+      .units-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-image {
+        order: -1;
+        aspect-ratio: 16/9;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .footer-links {
+        gap: 2rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       ANIMATIONS ON SCROLL
+    ═══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -210,17 +905,17 @@
 </head>
 <body>
 
+  <!-- ═══ NAVIGATION ═══ -->
   <nav id="nav">
-    <a href="index.html" class="nav-logo">
+    <a href="#" class="nav-logo">
       <div class="nav-logo-icon">CS</div>
       <span class="nav-logo-text">Cleburne Scouts</span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#units">Our Units</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#meeting">Meetings</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#" >Events</a></li>
+      <li><a href="#" >Gallery</a></li>
       <li><a href="#join" class="nav-cta">Join Us</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -228,23 +923,52 @@
     </button>
   </nav>
 
+  <!-- ═══ HERO ═══ -->
   <section class="hero">
     <div class="hero-bg">
-      <div style="position:absolute;inset:0;background-image:url('hero.jpg');background-size:cover;background-position:center 30%;z-index:0;"></div>
+      <!-- Stars -->
+      <div class="stars" id="stars"></div>
+
+      <!-- Sky gradient -->
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg, #0a1628 0%, #152238 30%, #1a3a4a 50%, #2d5a3f 70%, #1a3a2a 100%);z-index:0;"></div>
+
+      <!-- Mountains -->
+      <div class="mountain-layer mountain-back">
+        <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+          <path d="M0,300 L0,180 L100,120 L200,160 L350,80 L500,140 L600,60 L750,130 L850,90 L950,150 L1050,70 L1150,120 L1200,100 L1200,300 Z" fill="rgba(45,90,63,0.4)"/>
+        </svg>
+      </div>
+      <div class="mountain-layer mountain-mid">
+        <svg viewBox="0 0 1200 250" preserveAspectRatio="none">
+          <path d="M0,250 L0,200 L150,140 L300,180 L450,100 L550,160 L700,80 L800,150 L950,110 L1100,170 L1200,130 L1200,250 Z" fill="rgba(26,58,42,0.6)"/>
+        </svg>
+      </div>
+      <div class="mountain-layer mountain-front">
+        <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+          <path d="M0,200 L0,160 L100,140 L250,170 L400,130 L500,160 L650,120 L800,155 L900,135 L1050,165 L1200,140 L1200,200 Z" fill="rgba(15,36,24,0.9)"/>
+        </svg>
+      </div>
+
       <div class="hero-gradient"></div>
     </div>
+
     <div class="hero-content">
       <div class="hero-badge">⚜ Cleburne, Texas</div>
       <h1>Where <em>Adventure</em> Begins</h1>
-      <p class="hero-subtitle">Troop 673 &amp; Pack 673 — building character, courage, and community for Cleburne's youth since day one on the trail.</p>
+      <p class="hero-subtitle">Troop 673 & Pack 673 — building character, courage, and community for Cleburne's youth since day one on the trail.</p>
       <div class="hero-buttons">
         <a href="#join" class="btn btn-primary">Join the Adventure →</a>
         <a href="#units" class="btn btn-outline">Explore Our Units</a>
       </div>
     </div>
-    <div class="hero-scroll"><span>Explore</span><div class="scroll-line"></div></div>
+
+    <div class="hero-scroll">
+      <span>Explore</span>
+      <div class="scroll-line"></div>
+    </div>
   </section>
 
+  <!-- ═══ UNITS ═══ -->
   <section class="units" id="units">
     <div class="section-inner">
       <div class="units-header reveal">
@@ -252,6 +976,7 @@
         <h2 class="section-heading">Two Paths, One Mission</h2>
         <p class="section-desc">Whether your child is just starting their scouting journey or ready to tackle the trail to Eagle, we have a place for them.</p>
       </div>
+
       <div class="units-grid">
         <div class="unit-card unit-card-troop reveal reveal-delay-1">
           <div class="unit-number">673</div>
@@ -259,20 +984,48 @@
           <h3 class="unit-name">Troop 673</h3>
           <div class="unit-ages">Ages 11–17</div>
           <p class="unit-desc">Backpacking, camping, leadership, and the trail to Eagle Scout. Our scouts plan their own adventures and lead the way.</p>
-          <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662taa0673&_gl=1*1ueeiaw*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank" class="unit-link">Join Troop 673 <span>→</span></a>
+          <a href="#" class="unit-link">
+            Learn More <span class="unit-link-arrow">→</span>
+          </a>
         </div>
+
         <div class="unit-card unit-card-pack reveal reveal-delay-2">
           <div class="unit-number">673</div>
           <span class="unit-type">Cub Scouts</span>
           <h3 class="unit-name">Pack 673</h3>
           <div class="unit-ages">Ages 5–10 · K through 5th Grade</div>
           <p class="unit-desc">Pinewood derby, campouts, and hands-on adventures. Cubs build friendships and skills that last a lifetime.</p>
-          <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662paa0673&_gl=1*1t47ad9*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank" class="unit-link">Join Pack 673 <span>→</span></a>
+          <a href="#" class="unit-link">
+            Learn More <span class="unit-link-arrow">→</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ═══ STATS ═══ -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-number">673</div>
+        <div class="stat-label">Our Unit Number</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Active Units</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Adventures Ahead</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Community</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
   <section class="about" id="about">
     <div class="section-inner">
       <div class="about-grid">
@@ -280,135 +1033,67 @@
           <span class="section-label reveal">Why Scouting</span>
           <h2 class="section-heading reveal">More Than a Uniform</h2>
           <p class="section-desc reveal">Scouting in Cleburne is about building kids who are ready for the real world — confident, capable, and connected to their community.</p>
+
           <div class="about-values">
             <div class="about-value reveal">
               <div class="about-value-icon">🏕</div>
-              <div><h4>Outdoor Adventure</h4><p>Camping, hiking, canoeing — real skills learned in the real world, not a classroom.</p></div>
+              <div>
+                <h4>Outdoor Adventure</h4>
+                <p>Camping, hiking, canoeing — real skills learned in the real world, not a classroom.</p>
+              </div>
             </div>
             <div class="about-value reveal reveal-delay-1">
               <div class="about-value-icon">🧭</div>
-              <div><h4>Leadership</h4><p>Scouts lead patrols, plan trips, and make decisions. They learn by doing.</p></div>
+              <div>
+                <h4>Leadership</h4>
+                <p>Scouts lead patrols, plan trips, and make decisions. They learn by doing.</p>
+              </div>
             </div>
             <div class="about-value reveal reveal-delay-2">
               <div class="about-value-icon">🤝</div>
-              <div><h4>Community</h4><p>Service projects, flag ceremonies, and giving back to Cleburne — scouts show up.</p></div>
+              <div>
+                <h4>Community</h4>
+                <p>Service projects, flag ceremonies, and giving back to Cleburne — scouts show up.</p>
+              </div>
             </div>
             <div class="about-value reveal reveal-delay-3">
               <div class="about-value-icon">⚜</div>
-              <div><h4>Character</h4><p>The Scout Oath and Law aren't just words — they're how our scouts live every day.</p></div>
+              <div>
+                <h4>Character</h4>
+                <p>The Scout Oath and Law aren't just words — they're how our scouts live every day.</p>
+              </div>
             </div>
           </div>
         </div>
+
         <div class="about-image reveal">
-          <img src="about.jpg" alt="Scout rappelling at Philmont" style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="meeting" id="meeting">
-    <div class="section-inner">
-      <span class="section-label reveal">When &amp; Where</span>
-      <h2 class="section-heading reveal">Meeting Information</h2>
-      <p class="section-desc reveal">Both units meet every Monday evening at United Presbyterian Church. Come in the front door and we'll point you in the right direction.</p>
-      <div class="meeting-grid">
-        <div class="meeting-card meeting-card-troop reveal reveal-delay-1">
-          <div class="meeting-card-accent"></div>
-          <div class="meeting-card-type">Scouts BSA</div>
-          <h3>Troop 673</h3>
-          <div class="meeting-detail"><div class="meeting-detail-icon">📅</div><div><div class="meeting-detail-label">When</div><div class="meeting-detail-value">Mondays at 7:00 PM</div></div></div>
-          <div class="meeting-detail"><div class="meeting-detail-icon">📍</div><div><div class="meeting-detail-label">Where</div><div class="meeting-detail-value">United Presbyterian Church</div></div></div>
-          <div class="meeting-detail"><div class="meeting-detail-icon">👤</div><div><div class="meeting-detail-label">Ages</div><div class="meeting-detail-value">11–17 (6th–12th Grade)</div></div></div>
-          <div class="meeting-detail"><div class="meeting-detail-icon">✉️</div><div><div class="meeting-detail-label">Contact</div><div class="meeting-detail-value"><a href="contact.html">Send us a message →</a></div></div></div>
-        </div>
-        <div class="meeting-card meeting-card-pack reveal reveal-delay-2">
-          <div class="meeting-card-accent"></div>
-          <div class="meeting-card-type">Cub Scouts</div>
-          <h3>Pack 673</h3>
-          <div class="meeting-detail"><div class="meeting-detail-icon">📅</div><div><div class="meeting-detail-label">When</div><div class="meeting-detail-value">Mondays at 7:00 PM</div></div></div>
-          <div class="meeting-detail"><div class="meeting-detail-icon">📍</div><div><div class="meeting-detail-label">Where</div><div class="meeting-detail-value">United Presbyterian Church</div></div></div>
-          <div class="meeting-detail"><div class="meeting-detail-icon">👤</div><div><div class="meeting-detail-label">Ages</div><div class="meeting-detail-value">5–10 (Kindergarten–5th Grade)</div></div></div>
-          <div class="meeting-detail"><div class="meeting-detail-icon">✉️</div><div><div class="meeting-detail-label">Contact</div><div class="meeting-detail-value"><a href="contact.html">Send us a message →</a></div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="location" id="location">
-    <div class="section-inner">
-      <span class="section-label reveal">Our Home</span>
-      <h2 class="section-heading reveal">Where to Find Us</h2>
-      <div class="location-card reveal">
-        <div class="location-info">
-          <div class="location-name">United Presbyterian Church</div>
-          <div class="location-role">Chartered Organization</div>
-          <div class="location-address">
-            <span class="location-address-icon">📍</span>
-            <div class="location-address-text">1510 W Westhill Drive<br>Cleburne, TX 76033</div>
-          </div>
-          <div class="location-links">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=1510+W+Westhill+Dr+Cleburne+TX+76033" target="_blank" class="location-link">Get Directions →</a>
-            <a href="https://upccleburne.org/" target="_blank" class="location-link">Visit Church Website →</a>
+          <div class="about-image-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+            </svg>
+            Your scout photos here
           </div>
         </div>
-        <div class="location-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.0!2d-97.41!3d32.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e7b3b7b3b7b3b%3A0x0!2s1510+W+Westhill+Dr%2C+Cleburne%2C+TX+76033!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="United Presbyterian Church"></iframe>
-        </div>
       </div>
     </div>
   </section>
 
-  <section class="leadership" id="leadership">
-    <div class="section-inner">
-      <div class="leadership-header">
-        <span class="section-label reveal">Leadership</span>
-        <h2 class="section-heading reveal">Meet Our Leaders</h2>
-        <p class="section-desc reveal">Our units are led by dedicated volunteers committed to delivering a quality scouting program for Cleburne's youth.</p>
-      </div>
-      <div class="leadership-unit reveal">
-        <div class="leadership-unit-label leadership-unit-label-shared">⚜ Chartered Organization</div>
-        <div class="leader-grid">
-          <div class="leader-card"><div class="leader-avatar leader-avatar-shared">GW</div><div><div class="leader-name">Dr. Greg Wilson</div><div class="leader-title">Charter Organization Rep · Pack &amp; Troop</div></div></div>
-        </div>
-      </div>
-      <div class="leadership-unit reveal">
-        <div class="leadership-unit-label leadership-unit-label-troop">🏔 Troop 673</div>
-        <div class="leader-grid">
-          <div class="leader-card"><div class="leader-avatar leader-avatar-troop">MR</div><div><div class="leader-name">Matthew Reynolds</div><div class="leader-title">Scoutmaster</div></div></div>
-          <div class="leader-card"><div class="leader-avatar leader-avatar-troop">KW</div><div><div class="leader-name">Karen Whitney</div><div class="leader-title">Committee Chair</div></div></div>
-        </div>
-      </div>
-      <div class="leadership-unit reveal">
-        <div class="leadership-unit-label leadership-unit-label-pack">🏕 Pack 673</div>
-        <div class="leader-grid">
-          <div class="leader-card"><div class="leader-avatar leader-avatar-pack">JS</div><div><div class="leader-name">Jessie Stocks</div><div class="leader-title">Cubmaster</div></div></div>
-          <div class="leader-card"><div class="leader-avatar leader-avatar-pack">MR</div><div><div class="leader-name">Matthew Reynolds</div><div class="leader-title">Committee Chair</div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="reveal"><div class="stat-number">Longhorn</div><div class="stat-label">Council</div></div>
-      <div class="reveal reveal-delay-1"><div class="stat-number">Trinity</div><div class="stat-label">Trails District</div></div>
-      <div class="reveal reveal-delay-2"><div class="stat-number">673</div><div class="stat-label">Our Unit Number</div></div>
-    </div>
-  </section>
-
+  <!-- ═══ JOIN CTA ═══ -->
   <section class="join" id="join">
     <div class="join-inner">
       <span class="section-label reveal">Get Involved</span>
       <h2 class="section-heading reveal">Ready for the Trail?</h2>
-      <p class="section-desc reveal">Stop by any Monday at 7:00 PM — no commitment, no pressure. Meet the scouts, meet the leaders, and see if 673 is the right fit for your family.</p>
+      <p class="section-desc reveal">Whether your child is 5 or 17, there's a place for them at 673. Come to a meeting, meet the scouts, and see what scouting in Cleburne is all about.</p>
       <div class="join-buttons reveal">
-        <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662taa0673&_gl=1*1ueeiaw*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank" class="btn btn-primary">Join Troop 673 →</a>
-        <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662paa0673&_gl=1*1t47ad9*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank" class="btn btn-dark">Join Pack 673 →</a>
-        <a href="contact.html" class="btn btn-outline">Ask a Question →</a>
+        <a href="mailto:info@cleburnescouts.org" class="btn btn-primary">Contact Us →</a>
+        <a href="#units" class="btn btn-dark">Explore Our Units</a>
       </div>
     </div>
   </section>
 
+  <!-- ═══ FOOTER ═══ -->
   <footer>
     <div class="footer-inner">
       <div>
@@ -416,40 +1101,67 @@
           <div class="footer-brand-icon">CS</div>
           <span class="footer-brand-text">Cleburne Scouts</span>
         </div>
-        <p class="footer-tagline">Troop 673 &amp; Pack 673 — proudly serving the youth of Cleburne, Texas.</p>
+        <p class="footer-tagline">Troop 673 & Pack 673 — proudly serving the youth of Cleburne, Texas.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h5>Units</h5>
-          <a href="#units">Troop 673</a>
-          <a href="#units">Pack 673</a>
-          <a href="#meeting">Meetings</a>
+          <a href="#">Troop 673</a>
+          <a href="#">Pack 673</a>
+          <a href="#">Calendar</a>
         </div>
         <div class="footer-col">
           <h5>Connect</h5>
-          <a href="contact.html">Contact Us</a>
+          <a href="mailto:info@cleburnescouts.org">Email Us</a>
           <a href="#">Facebook</a>
-          <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662taa0673&_gl=1*1ueeiaw*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank">Join Troop</a>
-          <a href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-662paa0673&_gl=1*1t47ad9*_gcl_au*MTk2MTg5MDgwNy4xNzc2MTM5ODI4*_ga*MjA4MjQxMDU3NC4xNzc2MTM5ODI4*_ga_61ZEHCVHHS*czE3NzYxMzk4MjgkbzEkZzEkdDE3NzYxMzk4MzckajUxJGwwJGgw" target="_blank">Join Pack</a>
+          <a href="#">Join Now</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Cleburne Scouts — Troop 673 &amp; Pack 673. All rights reserved.</p>
+      <p>&copy; 2026 Cleburne Scouts — Troop 673 & Pack 673. All rights reserved.</p>
       <span class="footer-council">Longhorn Council · Scouting America</span>
     </div>
   </footer>
 
   <script>
+    // ── Nav scroll effect ──
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); });
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // ── Mobile menu ──
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
-    navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => navLinks.classList.remove('open')); });
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ── Stars ──
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 60 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      star.style.width = star.style.height = (Math.random() * 2 + 1) + 'px';
+      starsContainer.appendChild(star);
+    }
+
+    // ── Scroll reveal ──
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
     }, { threshold: 0.15 });
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
