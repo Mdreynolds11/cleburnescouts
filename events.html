@@ -1,0 +1,1215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troop 673 Events — Cleburne Scouts</title>
+  <meta name="description" content="Upcoming events and activities for Troop 673 in Cleburne, Texas. RSVP for campouts, meetings, and adventures.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1a3a2a;
+      --forest-deep: #0f2418;
+      --pine: #2d5a3f;
+      --sage: #7a9e7e;
+      --trail: #c4a35a;
+      --trail-light: #e8d5a3;
+      --campfire: #d4642a;
+      --campfire-glow: #f4a63a;
+      --sky: #e8efe6;
+      --cloud: #f5f7f4;
+      --rock: #3a3a3a;
+      --rope: #8b7355;
+      --text: #1a1a1a;
+      --text-light: #5a5a5a;
+      --white: #ffffff;
+      --border: #e2e8e4;
+      --green: #27ae60;
+      --red: #c0392b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: var(--cloud);
+      overflow-x: hidden;
+    }
+
+    /* ═══ NAVIGATION ═══ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 36, 24, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .nav-logo-icon {
+      width: 42px; height: 42px;
+      background: var(--campfire);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; color: var(--white);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover .nav-logo-icon { transform: rotate(15deg) scale(1.05); }
+
+    .nav-logo-text { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.03em; }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none; align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      position: relative; transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--campfire); transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--campfire) !important; color: var(--white) !important;
+      padding: 0.6rem 1.4rem; border-radius: 6px;
+      font-weight: 600 !important; text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      transition: background 0.3s ease, transform 0.2s ease !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--campfire-glow) !important; transform: translateY(-1px); }
+
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+
+    .nav-hamburger span {
+      width: 26px; height: 2px; background: var(--white);
+      border-radius: 2px; transition: all 0.3s ease;
+    }
+
+    /* ═══ PAGE HEADER ═══ */
+    .page-header {
+      background: var(--forest-deep);
+      padding: 8rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(45,90,63,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,100,42,0.08) 0%, transparent 50%);
+    }
+
+    .page-header::after {
+      content: ''; position: absolute;
+      bottom: 0; left: -5%; right: -5%; height: 80px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,80 L0,50 L100,35 L250,55 L400,25 L500,45 L650,20 L800,40 L950,30 L1100,50 L1200,35 L1200,80 Z' fill='%23f5f7f4'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 110% auto; z-index: 1;
+    }
+
+    .page-header-inner {
+      max-width: 1100px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+
+    .page-header .section-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--campfire); margin-bottom: 0.75rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 700;
+      color: var(--white); line-height: 1.1; margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.6);
+      font-weight: 300; max-width: 550px; line-height: 1.6;
+    }
+
+    .page-header-actions {
+      display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;
+    }
+
+    /* ═══ CONTENT ═══ */
+    .content {
+      max-width: 1100px; margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    /* ═══ AUTH BAR ═══ */
+    .auth-bar {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+
+    .auth-bar label {
+      font-size: 0.8rem; font-weight: 600; color: var(--text-light);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    .auth-bar select, .auth-bar input {
+      font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+      padding: 0.5rem 0.75rem; border-radius: 8px;
+      border: 1px solid var(--border); outline: none;
+      background: var(--white);
+    }
+
+    .auth-bar select { flex: 1; min-width: 200px; }
+
+    /* ═══ TABS ═══ */
+    .tabs {
+      display: flex; gap: 0.25rem; margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .tab-btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 0.75rem 1.25rem;
+      background: transparent; border: none;
+      cursor: pointer; transition: all 0.2s ease;
+      margin-bottom: -2px; color: var(--text-light);
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab-btn.active {
+      color: var(--campfire);
+      border-bottom-color: var(--campfire);
+    }
+
+    /* ═══ EVENT CARDS ═══ */
+    .event-list {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+
+    .event-card {
+      background: var(--white);
+      border-radius: 12px; padding: 1.5rem;
+      border: 1px solid var(--border);
+      cursor: pointer; transition: all 0.2s ease;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+    }
+
+    .event-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .date-badge {
+      min-width: 60px; text-align: center;
+      background: var(--cloud); border-radius: 10px;
+      padding: 0.6rem 0.5rem; border: 1px solid var(--border);
+    }
+
+    .date-badge-month {
+      font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--campfire);
+    }
+
+    .date-badge-day {
+      font-size: 1.5rem; font-weight: 800;
+      color: var(--forest-deep); line-height: 1.1;
+    }
+
+    .date-badge-days {
+      font-size: 0.6rem; color: var(--text-light); margin-top: 2px;
+    }
+
+    .event-info { flex: 1; }
+
+    .event-title {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--forest-deep); margin-bottom: 0.25rem;
+    }
+
+    .event-meta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.5rem;
+    }
+
+    .event-desc {
+      font-size: 0.85rem; color: var(--text-light);
+      margin: 0.5rem 0; line-height: 1.5;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    .event-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+
+    .tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 0.2rem 0.6rem; border-radius: 50px; letter-spacing: 0.02em;
+    }
+
+    .tag-cost { background: rgba(244,166,58,0.1); color: #d4842a; }
+    .tag-going { background: rgba(39,174,96,0.1); color: var(--green); }
+    .tag-not-going { background: rgba(192,57,43,0.1); color: var(--red); }
+    .tag-count { background: rgba(45,90,63,0.08); color: var(--pine); }
+
+    .event-arrow { color: var(--text-light); font-size: 1.2rem; align-self: center; }
+
+    .empty-state {
+      text-align: center; padding: 3rem;
+      color: var(--text-light); background: var(--white);
+      border-radius: 12px; border: 1px solid var(--border);
+    }
+
+    /* ═══ EVENT DETAIL ═══ */
+    .detail-card {
+      background: var(--white); border-radius: 16px;
+      padding: 2rem; border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-date {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--campfire); margin-bottom: 6px;
+    }
+
+    .detail-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; color: var(--forest-deep); margin: 0 0 0.75rem;
+    }
+
+    .detail-location {
+      font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.75rem;
+    }
+
+    .detail-desc {
+      font-size: 0.95rem; color: var(--text);
+      line-height: 1.7; margin: 1rem 0 0;
+    }
+
+    .cost-box {
+      margin-top: 1.25rem; padding: 1rem;
+      background: var(--cloud); border-radius: 10px;
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+
+    .cost-item-label {
+      font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light);
+    }
+
+    .cost-item-value {
+      font-size: 1.3rem; font-weight: 700; color: var(--forest-deep);
+    }
+
+    /* ═══ RSVP FORM ═══ */
+    .rsvp-section { margin-bottom: 1.25rem; }
+
+    .rsvp-label {
+      font-size: 0.75rem; font-weight: 600; color: var(--text-light);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      display: block; margin-bottom: 0.5rem;
+    }
+
+    .rsvp-checkbox {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 0; cursor: pointer; font-size: 0.9rem;
+    }
+
+    .rsvp-checkbox input { width: 18px; height: 18px; accent-color: var(--forest); }
+
+    .rsvp-input {
+      font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+      padding: 0.65rem 0.85rem; border-radius: 8px;
+      border: 1px solid var(--border); width: 100%;
+      outline: none; background: var(--white);
+    }
+
+    .rsvp-input-small { width: 80px; }
+
+    .rsvp-cost-preview {
+      padding: 0.75rem 1rem; background: var(--cloud);
+      border-radius: 8px; margin-bottom: 1rem;
+      font-size: 0.9rem; font-weight: 600; color: var(--forest-deep);
+    }
+
+    .rsvp-buttons { display: flex; gap: 0.75rem; }
+
+    /* ═══ ATTENDEE LIST ═══ */
+    .attendee-row {
+      padding: 1rem; background: var(--cloud);
+      border-radius: 10px; display: flex;
+      justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.75rem;
+    }
+
+    .attendee-name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+
+    .attendee-details {
+      font-size: 0.8rem; color: var(--text-light); margin-top: 4px;
+    }
+
+    .attendee-payment {
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    .attendee-payment select {
+      font-family: 'Outfit', sans-serif;
+      padding: 0.3rem 0.5rem; font-size: 0.75rem;
+      border-radius: 6px; border: 1px solid var(--border);
+      outline: none;
+    }
+
+    /* ═══ LOGIN MODAL ═══ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal {
+      background: var(--white); border-radius: 16px;
+      padding: 2.5rem; max-width: 400px; width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .modal-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--forest); display: flex;
+      align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.5rem;
+    }
+
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--forest-deep);
+      margin: 0; text-align: center;
+    }
+
+    .modal p {
+      font-size: 0.85rem; color: var(--text-light);
+      margin-top: 6px; text-align: center;
+    }
+
+    .modal-error {
+      color: var(--red); font-size: 0.8rem; margin: 0 0 1rem;
+    }
+
+    .modal-buttons { display: flex; gap: 0.75rem; }
+
+    /* ═══ CREATE EVENT FORM ═══ */
+    .form-group { margin-bottom: 1rem; }
+
+    .form-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-light); display: block; margin-bottom: 0.35rem;
+    }
+
+    .form-input {
+      font-family: 'Outfit', sans-serif; font-size: 0.9rem;
+      padding: 0.65rem 0.85rem; border-radius: 8px;
+      border: 1px solid var(--border); width: 100%;
+      outline: none; background: var(--white);
+    }
+
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem;
+    }
+
+    .form-row-half {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+    }
+
+    /* ═══ BUTTONS ═══ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.4rem; border-radius: 8px;
+      font-family: 'Outfit', sans-serif; font-size: 0.85rem;
+      font-weight: 600; text-decoration: none;
+      letter-spacing: 0.03em; transition: all 0.2s ease;
+      cursor: pointer; border: none;
+    }
+
+    .btn-primary { background: var(--campfire); color: var(--white); }
+    .btn-primary:hover { background: var(--campfire-glow); transform: translateY(-1px); }
+
+    .btn-forest { background: var(--forest); color: var(--white); }
+    .btn-forest:hover { background: var(--pine); transform: translateY(-1px); }
+
+    .btn-green { background: var(--green); color: var(--white); }
+    .btn-green:hover { opacity: 0.9; }
+
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { background: var(--cloud); }
+
+    .btn-ghost {
+      background: transparent; color: var(--text-light);
+      border: none; padding: 0.5rem 0;
+    }
+
+    .btn-sm { padding: 0.35rem 0.7rem; font-size: 0.7rem; }
+    .btn-flex { flex: 1; justify-content: center; }
+
+    .btn-going { background: var(--forest); color: var(--white); }
+    .btn-going.active { background: var(--green); }
+    .btn-not-going { background: var(--cloud); color: var(--text); border: 1px solid var(--border); }
+    .btn-not-going.active { background: var(--red); color: var(--white); border-color: var(--red); }
+
+    .btn-header {
+      padding: 0.55rem 1.1rem; border-radius: 8px;
+      font-family: 'Outfit', sans-serif; font-size: 0.85rem;
+      font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: transparent; color: var(--white);
+    }
+
+    .btn-header.active { background: var(--campfire); border-color: var(--campfire); }
+    .btn-header:hover { border-color: rgba(255,255,255,0.5); }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: var(--forest-deep); padding: 3rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 2rem; flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;
+    }
+
+    .footer-brand-icon {
+      width: 36px; height: 36px; background: var(--campfire);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-weight: 800;
+      font-size: 0.9rem; color: var(--white);
+    }
+
+    .footer-brand-text { color: var(--white); font-weight: 700; font-size: 1rem; }
+
+    .footer-tagline {
+      color: rgba(255,255,255,0.4); font-size: 0.85rem;
+      font-weight: 300; max-width: 300px; line-height: 1.5;
+    }
+
+    .footer-links { display: flex; gap: 3rem; }
+
+    .footer-col h5 {
+      color: rgba(255,255,255,0.5); font-size: 0.7rem;
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; margin-bottom: 0.75rem;
+    }
+
+    .footer-col a {
+      display: block; color: rgba(255,255,255,0.65);
+      text-decoration: none; font-size: 0.85rem;
+      font-weight: 400; margin-bottom: 0.4rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      max-width: 1100px; margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+    .footer-council { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(15, 36, 24, 0.98);
+        flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.2rem; }
+      .nav-hamburger { display: flex; z-index: 101; }
+      .event-card { flex-direction: column; }
+      .date-badge { align-self: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-row-half { grid-template-columns: 1fr; }
+      .footer-links { gap: 2rem; }
+      .page-header-actions { flex-direction: column; }
+      .rsvp-buttons { flex-direction: column; }
+    }
+
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">CS</div>
+      <span class="nav-logo-text">Cleburne Scouts</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#units">Our Units</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="about.html#join" class="nav-cta">Join Us</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══ PAGE HEADER ═══ -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label" style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--campfire);margin-bottom:0.75rem;">Troop 673</span>
+      <h1>Events & Activities</h1>
+      <p>Campouts, meetings, service projects, and adventures. See what's coming up and RSVP for your family.</p>
+      <div class="page-header-actions">
+        <button class="btn-header active" id="btnPublic" onclick="switchView('public')">Public View</button>
+        <button class="btn-header" id="btnFamily" onclick="showLogin()">Family Login</button>
+        <button class="btn-header" id="btnCreate" onclick="showCreateForm()" hidden>+ New Event</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ LOGIN MODAL ═══ -->
+  <div class="modal-overlay" id="loginModal" hidden>
+    <div class="modal">
+      <div style="text-align:center;margin-bottom:1.5rem;">
+        <div class="modal-icon">🔒</div>
+        <h2>Family Portal</h2>
+        <p>Enter the troop password to RSVP for events</p>
+      </div>
+      <input type="password" id="passwordInput" class="form-input" placeholder="Troop password" style="margin-bottom:0.75rem;" onkeydown="if(event.key==='Enter')handleLogin()">
+      <p class="modal-error" id="passwordError" hidden>Incorrect password. Ask your Scoutmaster for the troop password.</p>
+      <div class="modal-buttons">
+        <button class="btn btn-outline btn-flex" onclick="hideLogin()">Cancel</button>
+        <button class="btn btn-forest btn-flex" onclick="handleLogin()">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <div class="content">
+
+    <!-- Auth Bar (shown when logged in) -->
+    <div class="auth-bar" id="authBar" hidden>
+      <label>Your Family:</label>
+      <select id="familySelect" onchange="selectFamily()">
+        <option value="">Select your family...</option>
+      </select>
+      <button class="btn btn-sm btn-outline" onclick="switchView('leader')" id="leaderBtn">Leader View</button>
+    </div>
+
+    <!-- Event List View -->
+    <div id="listView">
+      <div class="tabs">
+        <button class="tab-btn active" id="tabUpcoming" onclick="switchTab('upcoming')">Upcoming</button>
+        <button class="tab-btn" id="tabPast" onclick="switchTab('past')">Past</button>
+      </div>
+      <div class="event-list" id="eventList">
+        <div class="empty-state">Loading events...</div>
+      </div>
+    </div>
+
+    <!-- Event Detail View -->
+    <div id="detailView" hidden>
+      <button class="btn btn-ghost" onclick="hideDetail()" style="margin-bottom:1rem;font-size:0.85rem;">← Back to Events</button>
+      <div id="detailContent"></div>
+    </div>
+
+    <!-- Create Event View -->
+    <div id="createView" hidden>
+      <button class="btn btn-ghost" onclick="hideCreateForm()" style="margin-bottom:1rem;font-size:0.85rem;">← Back to Events</button>
+      <div class="detail-card" style="max-width:600px;margin:0 auto;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--forest-deep);margin:0 0 1.5rem;">New Event</h2>
+        <div class="form-group">
+          <label class="form-label">Event Title *</label>
+          <input id="formTitle" class="form-input" placeholder="Spring Campout">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea id="formDesc" class="form-input" rows="3" placeholder="What to bring, what we'll do..." style="resize:vertical;"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Location</label>
+          <input id="formLocation" class="form-input" placeholder="Dinosaur Valley State Park">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Start Date *</label>
+            <input id="formDate" type="date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">End Date</label>
+            <input id="formEndDate" type="date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time</label>
+            <input id="formTime" class="form-input" placeholder="7:00 PM" value="7:00 PM">
+          </div>
+        </div>
+        <div class="form-row-half">
+          <div class="form-group">
+            <label class="form-label">Cost Per Scout ($)</label>
+            <input id="formCostScout" type="number" min="0" step="0.01" class="form-input" value="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cost Per Adult ($)</label>
+            <input id="formCostAdult" type="number" min="0" step="0.01" class="form-input" value="0">
+          </div>
+        </div>
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;cursor:pointer;margin-bottom:1.5rem;">
+          <input id="formPublic" type="checkbox" checked style="width:18px;height:18px;accent-color:var(--forest);">
+          Show on public site
+        </label>
+        <div class="modal-buttons">
+          <button class="btn btn-outline btn-flex" onclick="hideCreateForm()">Cancel</button>
+          <button class="btn btn-forest btn-flex" onclick="createEvent()">Create Event</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-brand-icon">CS</div>
+          <span class="footer-brand-text">Cleburne Scouts</span>
+        </div>
+        <p class="footer-tagline">Troop 673 & Pack 673 — proudly serving the youth of Cleburne, Texas.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Units</h5>
+          <a href="#">Troop 673</a>
+          <a href="#">Pack 673</a>
+          <a href="events.html">Calendar</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="mailto:info@cleburnescouts.org">Email Us</a>
+          <a href="#">Facebook</a>
+          <a href="about.html#join">Join Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cleburne Scouts — Troop 673 & Pack 673. All rights reserved.</p>
+      <span class="footer-council">Longhorn Council · Scouting America</span>
+    </div>
+  </footer>
+
+  <script>
+    // ═══ CONFIG ═══
+    const SUPABASE_URL = 'https://vypsligugjqktbynmrhr.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5cHNsaXVndWpxa3RieW5tcmhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxMjg5ODMsImV4cCI6MjA5MTcwNDk4M30.dWa4lxOoaZ70FcHkyjTJmSAdVslVGsFWV1jQa2U1xNo';
+    const TROOP_PASSWORD = 'Troop673';
+
+    const headers = {
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=representation'
+    };
+
+    // ═══ STATE ═══
+    let currentView = 'public'; // public, family, leader
+    let currentTab = 'upcoming';
+    let events = [];
+    let families = [];
+    let rsvps = [];
+    let selectedFamily = null;
+    let selectedEvent = null;
+
+    // ═══ SUPABASE HELPERS ═══
+    async function sbGet(table) {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=*`, { headers });
+      if (!res.ok) { console.error('Fetch error:', table, res.status); return []; }
+      return await res.json();
+    }
+
+    async function sbInsert(table, data) {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+        method: 'POST', headers, body: JSON.stringify(data)
+      });
+      return await res.json();
+    }
+
+    async function sbUpsert(table, data) {
+      const h = { ...headers, 'Prefer': 'return=representation,resolution=merge-duplicates' };
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+        method: 'POST', headers: h, body: JSON.stringify(data)
+      });
+      return await res.json();
+    }
+
+    async function sbUpdate(table, id, data) {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`, {
+        method: 'PATCH', headers, body: JSON.stringify(data)
+      });
+      return await res.json();
+    }
+
+    // ═══ LOAD DATA ═══
+    async function loadData() {
+      try {
+        const [e, f, r] = await Promise.all([
+          sbGet('troop_events'),
+          sbGet('troop_families'),
+          sbGet('troop_rsvps')
+        ]);
+        events = Array.isArray(e) ? e.sort((a, b) => a.event_date.localeCompare(b.event_date)) : [];
+        families = Array.isArray(f) ? f : [];
+        rsvps = Array.isArray(r) ? r : [];
+        renderEvents();
+        renderFamilySelect();
+      } catch (err) {
+        console.error('Load error:', err);
+        document.getElementById('eventList').innerHTML = '<div class="empty-state">Unable to load events. Please try again later.</div>';
+      }
+    }
+
+    // ═══ DATE HELPERS ═══
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    }
+
+    function formatDateRange(start, end) {
+      if (!end || start === end) return formatDate(start);
+      const s = new Date(start + 'T00:00:00');
+      const e = new Date(end + 'T00:00:00');
+      if (s.getMonth() === e.getMonth()) {
+        return s.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' – ' + e.getDate();
+      }
+      return formatDate(start) + ' – ' + formatDate(end);
+    }
+
+    function isUpcoming(dateStr) {
+      return new Date(dateStr + 'T23:59:59') >= new Date();
+    }
+
+    function dayCount(start, end) {
+      return Math.ceil((new Date(end) - new Date(start)) / 86400000) + 1;
+    }
+
+    // ═══ RENDER EVENT LIST ═══
+    function renderEvents() {
+      const filtered = events.filter(e => currentTab === 'upcoming' ? isUpcoming(e.event_date) : !isUpcoming(e.event_date));
+
+      document.getElementById('tabUpcoming').textContent = `Upcoming (${events.filter(e => isUpcoming(e.event_date)).length})`;
+
+      if (filtered.length === 0) {
+        document.getElementById('eventList').innerHTML = `<div class="empty-state">${currentTab === 'upcoming' ? 'No upcoming events yet.' : 'No past events.'}</div>`;
+        return;
+      }
+
+      document.getElementById('eventList').innerHTML = filtered.map(event => {
+        const d = new Date(event.event_date + 'T00:00:00');
+        const month = d.toLocaleDateString('en-US', { month: 'short' });
+        const day = d.getDate();
+        const hasCost = event.cost_per_scout > 0 || event.cost_per_adult > 0;
+        const isMultiDay = event.end_date && event.end_date !== event.event_date;
+        const goingCount = rsvps.filter(r => r.event_id === event.id && r.status === 'going').length;
+        const familyRsvp = selectedFamily ? rsvps.find(r => r.event_id === event.id && r.family_id === selectedFamily.id) : null;
+
+        let tags = '';
+        if (hasCost) tags += `<span class="tag tag-cost">$${event.cost_per_scout} / scout</span>`;
+        if (currentView !== 'public') tags += `<span class="tag tag-count">${goingCount} going</span>`;
+        if (familyRsvp) {
+          if (familyRsvp.status === 'going') tags += `<span class="tag tag-going">✓ Going</span>`;
+          else tags += `<span class="tag tag-not-going">✗ Not Going</span>`;
+        }
+
+        return `
+          <div class="event-card" onclick="showDetail('${event.id}')">
+            <div class="date-badge">
+              <div class="date-badge-month">${month}</div>
+              <div class="date-badge-day">${day}</div>
+              ${isMultiDay ? `<div class="date-badge-days">${dayCount(event.event_date, event.end_date)} days</div>` : ''}
+            </div>
+            <div class="event-info">
+              <div class="event-title">${event.title}</div>
+              <div class="event-meta">
+                ${event.event_time ? `<span>🕐 ${event.event_time}</span>` : ''}
+                ${event.location ? `<span>📍 ${event.location}</span>` : ''}
+                ${isMultiDay ? `<span>📅 ${formatDateRange(event.event_date, event.end_date)}</span>` : ''}
+              </div>
+              ${event.description ? `<div class="event-desc">${event.description}</div>` : ''}
+              <div class="event-tags">${tags}</div>
+            </div>
+            <div class="event-arrow">→</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ═══ RENDER FAMILY SELECT ═══
+    function renderFamilySelect() {
+      const sel = document.getElementById('familySelect');
+      sel.innerHTML = '<option value="">Select your family...</option>' +
+        families.filter(f => f.active !== false).map(f =>
+          `<option value="${f.id}" ${selectedFamily && selectedFamily.id === f.id ? 'selected' : ''}>${f.family_name}</option>`
+        ).join('');
+    }
+
+    function selectFamily() {
+      const id = document.getElementById('familySelect').value;
+      selectedFamily = families.find(f => f.id === id) || null;
+      if (selectedEvent) showDetail(selectedEvent.id);
+      else renderEvents();
+    }
+
+    // ═══ EVENT DETAIL ═══
+    function showDetail(eventId) {
+      selectedEvent = events.find(e => e.id === eventId);
+      if (!selectedEvent) return;
+
+      document.getElementById('listView').hidden = true;
+      document.getElementById('detailView').hidden = false;
+      document.getElementById('createView').hidden = true;
+
+      const event = selectedEvent;
+      const hasCost = event.cost_per_scout > 0 || event.cost_per_adult > 0;
+      const eventRsvps = rsvps.filter(r => r.event_id === event.id);
+      const familyRsvp = selectedFamily ? eventRsvps.find(r => r.family_id === selectedFamily.id) : null;
+
+      let html = `
+        <div class="detail-card">
+          <div class="detail-date">${formatDateRange(event.event_date, event.end_date)} ${event.event_time ? '· ' + event.event_time : ''}</div>
+          <h2 class="detail-title">${event.title}</h2>
+          ${event.location ? `<div class="detail-location">📍 ${event.location}</div>` : ''}
+          ${event.description ? `<p class="detail-desc">${event.description}</p>` : ''}
+          ${hasCost ? `
+            <div class="cost-box">
+              ${event.cost_per_scout > 0 ? `<div><div class="cost-item-label">Per Scout</div><div class="cost-item-value">$${event.cost_per_scout}</div></div>` : ''}
+              ${event.cost_per_adult > 0 ? `<div><div class="cost-item-label">Per Adult</div><div class="cost-item-value">$${event.cost_per_adult}</div></div>` : ''}
+            </div>
+          ` : ''}
+        </div>
+      `;
+
+      // RSVP Form (family view)
+      if ((currentView === 'family' || currentView === 'leader') && selectedFamily) {
+        const scouts = selectedFamily.scouts || [];
+        const attending = familyRsvp ? (familyRsvp.attending_scouts || []) : scouts;
+        const adults = familyRsvp ? (familyRsvp.attending_adults || 0) : 1;
+        const notes = familyRsvp ? (familyRsvp.notes || '') : '';
+
+        html += `
+          <div class="detail-card">
+            <h3 style="font-size:1rem;font-weight:700;color:var(--forest-deep);margin:0 0 1.25rem;">RSVP — ${selectedFamily.family_name} Family</h3>
+            <div class="rsvp-section">
+              <span class="rsvp-label">Scouts Attending</span>
+              ${scouts.map(s => `
+                <label class="rsvp-checkbox">
+                  <input type="checkbox" class="scout-check" value="${s}" ${attending.includes(s) ? 'checked' : ''} onchange="updateCostPreview()">
+                  ${s}
+                </label>
+              `).join('')}
+            </div>
+            <div class="rsvp-section">
+              <span class="rsvp-label">Adults Attending</span>
+              <input type="number" id="rsvpAdults" class="rsvp-input rsvp-input-small" min="0" max="10" value="${adults}" onchange="updateCostPreview()">
+            </div>
+            ${hasCost ? `<div class="rsvp-cost-preview" id="costPreview">Estimated Cost: $0.00</div>` : ''}
+            <div class="rsvp-section">
+              <span class="rsvp-label">Notes (optional)</span>
+              <textarea id="rsvpNotes" class="rsvp-input" rows="2" placeholder="Dietary restrictions, arriving late, etc." style="resize:vertical;">${notes}</textarea>
+            </div>
+            <div class="rsvp-buttons">
+              <button class="btn btn-going btn-flex ${familyRsvp && familyRsvp.status === 'going' ? 'active' : ''}" onclick="submitRsvp('going')">
+                ${familyRsvp && familyRsvp.status === 'going' ? '✓ Going (Update)' : "We're Going!"}
+              </button>
+              <button class="btn btn-not-going btn-flex ${familyRsvp && familyRsvp.status === 'not_going' ? 'active' : ''}" onclick="submitRsvp('not_going')">
+                Can't Make It
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      // Attendee list (leader view)
+      if (currentView === 'leader') {
+        const goingRsvps = eventRsvps.filter(r => r.status === 'going');
+        html += `
+          <div class="detail-card">
+            <h3 style="font-size:1rem;font-weight:700;color:var(--forest-deep);margin:0 0 1.25rem;">RSVPs (${goingRsvps.length} going)</h3>
+            ${eventRsvps.length === 0 ? '<p style="color:var(--text-light);font-size:0.9rem;">No RSVPs yet.</p>' :
+              eventRsvps.map(rsvp => {
+                const family = families.find(f => f.id === rsvp.family_id);
+                if (!family) return '';
+                return `
+                  <div class="attendee-row">
+                    <div>
+                      <div class="attendee-name">
+                        ${family.family_name}
+                        <span class="tag ${rsvp.status === 'going' ? 'tag-going' : 'tag-not-going'}" style="margin-left:8px;">
+                          ${rsvp.status === 'going' ? 'Going' : 'Not Going'}
+                        </span>
+                      </div>
+                      ${rsvp.status === 'going' ? `
+                        <div class="attendee-details">
+                          Scouts: ${(rsvp.attending_scouts || []).join(', ') || 'None'} · Adults: ${rsvp.attending_adults}
+                          ${rsvp.notes ? ' · Note: ' + rsvp.notes : ''}
+                        </div>
+                      ` : ''}
+                    </div>
+                    ${hasCost && rsvp.status === 'going' ? `
+                      <div class="attendee-payment">
+                        <span style="font-size:0.85rem;font-weight:600;">$${rsvp.amount_paid || 0} / $${rsvp.amount_due || 0}</span>
+                        <select onchange="updatePayment('${rsvp.id}', this.value)" style="font-family:'Outfit',sans-serif;padding:0.3rem 0.5rem;font-size:0.75rem;border-radius:6px;border:1px solid var(--border);${rsvp.payment_status === 'paid' ? 'background:rgba(39,174,96,0.1);' : ''}">
+                          <option value="unpaid" ${rsvp.payment_status === 'unpaid' ? 'selected' : ''}>Unpaid</option>
+                          <option value="partial" ${rsvp.payment_status === 'partial' ? 'selected' : ''}>Partial</option>
+                          <option value="paid" ${rsvp.payment_status === 'paid' ? 'selected' : ''}>Paid</option>
+                        </select>
+                        ${rsvp.payment_status !== 'paid' ? `
+                          <button class="btn btn-green btn-sm" onclick="markPaid('${rsvp.id}', ${rsvp.amount_due})">Mark Paid</button>
+                        ` : ''}
+                      </div>
+                    ` : ''}
+                  </div>
+                `;
+              }).join('')
+            }
+          </div>
+        `;
+      }
+
+      // Public login prompt
+      if (currentView === 'public') {
+        html += `
+          <div class="detail-card" style="text-align:center;">
+            <p style="color:var(--text-light);font-size:0.9rem;margin-bottom:1rem;">Log in with the troop password to RSVP for this event.</p>
+            <button class="btn btn-forest" onclick="showLogin()">Family Login</button>
+          </div>
+        `;
+      }
+
+      document.getElementById('detailContent').innerHTML = html;
+
+      if (hasCost && (currentView === 'family' || currentView === 'leader') && selectedFamily) {
+        updateCostPreview();
+      }
+    }
+
+    function hideDetail() {
+      selectedEvent = null;
+      document.getElementById('listView').hidden = false;
+      document.getElementById('detailView').hidden = true;
+      renderEvents();
+    }
+
+    // ═══ COST PREVIEW ═══
+    function updateCostPreview() {
+      if (!selectedEvent) return;
+      const el = document.getElementById('costPreview');
+      if (!el) return;
+      const scoutCount = document.querySelectorAll('.scout-check:checked').length;
+      const adultCount = parseInt(document.getElementById('rsvpAdults').value) || 0;
+      const total = (scoutCount * (selectedEvent.cost_per_scout || 0)) + (adultCount * (selectedEvent.cost_per_adult || 0));
+      el.textContent = 'Estimated Cost: $' + total.toFixed(2);
+    }
+
+    // ═══ SUBMIT RSVP ═══
+    async function submitRsvp(status) {
+      if (!selectedFamily || !selectedEvent) return;
+
+      const scouts = Array.from(document.querySelectorAll('.scout-check:checked')).map(cb => cb.value);
+      const adults = parseInt(document.getElementById('rsvpAdults').value) || 0;
+      const notes = document.getElementById('rsvpNotes').value;
+      const hasCost = selectedEvent.cost_per_scout > 0 || selectedEvent.cost_per_adult > 0;
+      const amountDue = status === 'going' ? (scouts.length * (selectedEvent.cost_per_scout || 0)) + (adults * (selectedEvent.cost_per_adult || 0)) : 0;
+
+      const existingRsvp = rsvps.find(r => r.event_id === selectedEvent.id && r.family_id === selectedFamily.id);
+
+      const rsvpData = {
+        event_id: selectedEvent.id,
+        family_id: selectedFamily.id,
+        attending_scouts: status === 'going' ? scouts : [],
+        attending_adults: status === 'going' ? adults : 0,
+        status: status,
+        amount_due: amountDue,
+        amount_paid: existingRsvp ? existingRsvp.amount_paid : 0,
+        payment_status: amountDue === 0 ? 'na' : (existingRsvp ? existingRsvp.payment_status : 'unpaid'),
+        notes: notes,
+        updated_at: new Date().toISOString()
+      };
+
+      if (existingRsvp) {
+        await sbUpdate('troop_rsvps', existingRsvp.id, rsvpData);
+      } else {
+        await sbInsert('troop_rsvps', rsvpData);
+      }
+
+      await loadData();
+      showDetail(selectedEvent.id);
+    }
+
+    // ═══ PAYMENT ═══
+    async function updatePayment(rsvpId, status) {
+      await sbUpdate('troop_rsvps', rsvpId, { payment_status: status });
+      await loadData();
+      if (selectedEvent) showDetail(selectedEvent.id);
+    }
+
+    async function markPaid(rsvpId, amount) {
+      await sbUpdate('troop_rsvps', rsvpId, { payment_status: 'paid', amount_paid: amount });
+      await loadData();
+      if (selectedEvent) showDetail(selectedEvent.id);
+    }
+
+    // ═══ VIEW SWITCHING ═══
+    function switchView(view) {
+      currentView = view;
+      document.getElementById('btnPublic').classList.toggle('active', view === 'public');
+      document.getElementById('btnFamily').classList.toggle('active', view === 'family');
+      document.getElementById('authBar').hidden = (view === 'public');
+      document.getElementById('btnCreate').hidden = (view !== 'leader');
+
+      if (view === 'public') {
+        document.getElementById('btnFamily').textContent = 'Family Login';
+        document.getElementById('btnFamily').setAttribute('onclick', 'showLogin()');
+      } else {
+        document.getElementById('btnFamily').textContent = 'Family Portal';
+        document.getElementById('btnFamily').setAttribute('onclick', "switchView('family')");
+      }
+
+      if (selectedEvent) showDetail(selectedEvent.id);
+      else renderEvents();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tabUpcoming').classList.toggle('active', tab === 'upcoming');
+      document.getElementById('tabPast').classList.toggle('active', tab === 'past');
+      renderEvents();
+    }
+
+    // ═══ LOGIN ═══
+    function showLogin() {
+      document.getElementById('loginModal').hidden = false;
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordError').hidden = true;
+      document.getElementById('passwordInput').focus();
+    }
+
+    function hideLogin() {
+      document.getElementById('loginModal').hidden = true;
+    }
+
+    function handleLogin() {
+      if (document.getElementById('passwordInput').value === TROOP_PASSWORD) {
+        hideLogin();
+        switchView('family');
+      } else {
+        document.getElementById('passwordError').hidden = false;
+      }
+    }
+
+    // ═══ CREATE EVENT ═══
+    function showCreateForm() {
+      document.getElementById('listView').hidden = true;
+      document.getElementById('detailView').hidden = true;
+      document.getElementById('createView').hidden = false;
+      // Reset form
+      document.getElementById('formTitle').value = '';
+      document.getElementById('formDesc').value = '';
+      document.getElementById('formLocation').value = '';
+      document.getElementById('formDate').value = '';
+      document.getElementById('formEndDate').value = '';
+      document.getElementById('formTime').value = '7:00 PM';
+      document.getElementById('formCostScout').value = '0';
+      document.getElementById('formCostAdult').value = '0';
+      document.getElementById('formPublic').checked = true;
+    }
+
+    function hideCreateForm() {
+      document.getElementById('createView').hidden = true;
+      document.getElementById('listView').hidden = false;
+    }
+
+    async function createEvent() {
+      const title = document.getElementById('formTitle').value.trim();
+      const date = document.getElementById('formDate').value;
+      if (!title || !date) { alert('Title and start date are required.'); return; }
+
+      await sbInsert('troop_events', {
+        title: title,
+        description: document.getElementById('formDesc').value.trim() || null,
+        location: document.getElementById('formLocation').value.trim() || null,
+        event_date: date,
+        end_date: document.getElementById('formEndDate').value || null,
+        event_time: document.getElementById('formTime').value.trim() || null,
+        cost_per_scout: parseFloat(document.getElementById('formCostScout').value) || 0,
+        cost_per_adult: parseFloat(document.getElementById('formCostAdult').value) || 0,
+        is_public: document.getElementById('formPublic').checked
+      });
+
+      hideCreateForm();
+      await loadData();
+    }
+
+    // ═══ MOBILE MENU ═══
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('#navLinks a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // ═══ INIT ═══
+    loadData();
+  </script>
+</body>
+</html>
