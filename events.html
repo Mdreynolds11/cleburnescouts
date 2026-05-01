@@ -712,7 +712,7 @@
         </label>
         <div class="modal-buttons">
           <button class="btn btn-outline btn-flex" onclick="hideCreateForm()">Cancel</button>
-          <button class="btn btn-forest btn-flex" onclick="createEvent()">Create Event</button>
+          <button class="btn btn-forest btn-flex" onclick="submitNewEvent()">Create Event</button>
         </div>
       </div>
     </div>
@@ -751,7 +751,7 @@
 
   <script>
     // ═══ CONFIG ═══
-    const SUPABASE_URL = 'https://vypsliugujqktbynmrhr.supabase.co';
+    const SUPABASE_URL = 'https://vypsligugjqktbynmrhr.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5cHNsaXVndWpxa3RieW5tcmhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxMjg5ODMsImV4cCI6MjA5MTcwNDk4M30.dWa4lxOoaZ70FcHkyjTJmSAdVslVGsFWV1jQa2U1xNo';
     const TROOP_PASSWORD = 'Troop673';
 
@@ -1179,7 +1179,7 @@
       document.getElementById('listView').hidden = false;
     }
 
-    async function createEvent() {
+    async function submitNewEvent() {
       const title = document.getElementById('formTitle').value.trim();
       const date = document.getElementById('formDate').value;
       if (!title || !date) { alert('Title and start date are required.'); return; }
